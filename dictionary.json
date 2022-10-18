@@ -37,9 +37,8 @@
     },
     {
         "sp": "aaaa",
-        "de": "aaa",
-        "ar": "aaaa",
-        "tag": "adj"
+        "de": "hey",
+        "ar": "aaaa"
     },
     {
         "sp": "jdsaöj dkdfs öjafkdlsöajf kdlsöajfkdlsaö jfkslda jfdksalö jfdklö",
@@ -55,9 +54,8 @@
     },
     {
         "sp": "aaaa",
-        "de": "aaa",
-        "ar": "aaaa",
-        "tag": "adj"
+        "de": "hey",
+        "ar": "aaaa"
     },
     {
         "sp": "jfkdlsö",
@@ -67,9 +65,8 @@
     },
     {
         "sp": "aaaa",
-        "de": "aaa",
-        "ar": "aaaa",
-        "tag": "adj"
+        "de": "hey",
+        "ar": "aaaa"
     },
     {
         "sp": "jfkdlsö",
@@ -79,9 +76,8 @@
     },
     {
         "sp": "aaaa",
-        "de": "aaa",
-        "ar": "aaaa",
-        "tag": "adj"
+        "de": "hey",
+        "ar": "aaaa"
     },
     {
         "sp": "jfkdlsö",
@@ -91,9 +87,8 @@
     },
     {
         "sp": "aaaa",
-        "de": "aaa",
-        "ar": "aaaa",
-        "tag": "adj"
+        "de": "hey",
+        "ar": "aaaa"
     },
     {
         "sp": "jfkdlsö",
@@ -103,9 +98,8 @@
     },
     {
         "sp": "aaaa",
-        "de": "aaa",
-        "ar": "aaaa",
-        "tag": "adj"
+        "de": "hey",
+        "ar": "aaaa"
     },
     {
         "sp": "jfkdlsö",
@@ -115,9 +109,8 @@
     },
     {
         "sp": "aaaa",
-        "de": "aaa",
-        "ar": "aaaa",
-        "tag": "adj"
+        "de": "hey",
+        "ar": "aaaa"
     },
     {
         "sp": "jfkdlsö",
@@ -127,9 +120,8 @@
     },
     {
         "sp": "aaaa",
-        "de": "aaa",
-        "ar": "aaaa",
-        "tag": "adj"
+        "de": "hey",
+        "ar": "aaaa"
     },
     {
         "sp": "jfkdlsö",
@@ -139,9 +131,8 @@
     },
     {
         "sp": "aaaa",
-        "de": "aaa",
-        "ar": "aaaa",
-        "tag": "adj"
+        "de": "hey",
+        "ar": "aaaa"
     },
     {
         "sp": "jfkdlsö",
@@ -151,9 +142,8 @@
     },
     {
         "sp": "aaaa",
-        "de": "aaa",
-        "ar": "aaaa",
-        "tag": "adj"
+        "de": "hey",
+        "ar": "aaaa"
     },
     {
         "sp": "jfkdlsö",
@@ -163,9 +153,8 @@
     },
     {
         "sp": "aaaa",
-        "de": "aaa",
-        "ar": "aaaa",
-        "tag": "adj"
+        "de": "hey",
+        "ar": "aaaa"
     },
     {
         "sp": "jfkdlsö",
@@ -175,9 +164,8 @@
     },
     {
         "sp": "aaaa",
-        "de": "aaa",
-        "ar": "aaaa",
-        "tag": "adj"
+        "de": "hey",
+        "ar": "aaaa"
     },
     {
         "sp": "jfkdlsö",
@@ -187,9 +175,8 @@
     },
     {
         "sp": "aaaa",
-        "de": "aaa",
-        "ar": "aaaa",
-        "tag": "adj"
+        "de": "hey",
+        "ar": "aaaa"
     },
     {
         "sp": "jfkdlsö",
@@ -199,9 +186,8 @@
     },
     {
         "sp": "aaaa",
-        "de": "aaa",
-        "ar": "aaaa",
-        "tag": "adj"
+        "de": "hey",
+        "ar": "aaaa"
     },
     {
         "sp": "jfkdlsö",
@@ -211,14 +197,18 @@
     },
     {
         "sp": "aaaa",
-        "de": "aaa",
-        "ar": "aaaa",
-        "tag": "adj"
+        "de": "hey",
+        "ar": "aaaa"
     },
     {
         "sp": "b",
         "de": "b",
         "ar": "b",
         "tag": "noun"
+    },
+    {
+        "sp": "ahallo mein",
+        "de": "mein namae ",
+        "ar": "djsklöafjdklsaöj döas"
     }
 ]

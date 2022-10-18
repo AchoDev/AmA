@@ -79,9 +79,19 @@ $theme-color: lighten(rgb(255, 145, 61), 0%);
     transform: scale(0.7);
 
     width: 70%;
-    height: 60%;
+    height: 90%;
+    margin-top: 60px;
     background-color: $theme-color;
     border-radius: 10px;
+
+    overflow: scroll;
+    
+
+    button {
+      width: 190px;
+      height: 120px;
+      font-size: 40px;
+    }
   }
 }
 
@@ -274,7 +284,11 @@ $theme-color: lighten(rgb(255, 145, 61), 0%);
         flex-direction: column;
         width: 100%;
         align-items: center;
-  
+        
+        #single-word-container:hover #edit-button img {
+          opacity: .3;
+        }
+
         #single-word-container {
           width: $dict_width;
           height: 50px;
@@ -283,7 +297,9 @@ $theme-color: lighten(rgb(255, 145, 61), 0%);
           align-items: center;
       
           margin: $side_margin;
-    
+          
+          
+
           div {
   
             width: auto;
@@ -295,6 +311,19 @@ $theme-color: lighten(rgb(255, 145, 61), 0%);
           
           $text_color: darken(rgb(255, 255, 255), 1%);
   
+          .edit-mode {
+            display: None;
+            background-color: $theme-color;
+            height: 100%;
+
+          }
+
+          #edit-translation {
+            input {
+              width: 250px;
+            }
+          }
+
           #word1 {
             background: $text_color;
             margin: 5px;
@@ -335,6 +364,34 @@ $theme-color: lighten(rgb(255, 145, 61), 0%);
             color: black;
 
             // margin-left: 0;
+          }
+
+          #edit-button {
+
+            width: 30px;
+            height: 30px;
+            padding: 0;
+            margin: 0;
+            background: darken(white, 1%);
+            border: None;
+
+            img {
+              width: 100%;
+              height: 100%;
+
+              opacity: 0;
+
+              transition: ease-in-out .1s;
+            }
+
+            img:hover {
+              transform: scale(1.1);
+              opacity: 1;
+            }
+
+            img:active {
+              transform: scale(1);
+            }
           }
         }
 

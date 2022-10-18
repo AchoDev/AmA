@@ -1,6 +1,8 @@
 dict = require("./dict")
-// const update = require("./update")
+
+
 const fs = require("fs")
+
 
 let get_elem = (name) => document.getElementById(name)
 
@@ -60,12 +62,57 @@ function update_page() {
         const clone = word_container_template.content.cloneNode(true)
     
         const single_word = clone.querySelector("div").children[0]
-        const translation = clone.querySelector("div").children[2].children
+        const translation = clone.querySelector("div").children[3].children
     
         single_word.textContent = word.sp
         translation[0].textContent = word.de
         translation[1].textContent = word.ar
-    
+        
+        const edit_mode_items = clone.querySelectorAll(".edit-mode")
+
+        clone.getElementById("edit-button").addEventListener("click", () => {
+            for(element of edit_mode_items) {
+                element.style.display = "inherit"
+            }
+
+            edit_mode_items[0].querySelector("input").value = single_word.innerText
+
+            editTr = edit_mode_items[1].querySelectorAll("input")
+            editTr[0].value = translation[0].innerText
+            editTr[1].value = translation[1].innerText
+
+            single_word.style.display = "None"
+            
+
+            translation[0].parentNode.style.display = "None"
+        })
+
+        const leave_edit_mode = () => {
+            single_word.style.display = "inherit"
+            for(element of edit_mode_items) {
+                element.style.display = "None"
+            }
+            translation[0].parentNode.style.display = "inherit"
+        }
+
+        clone.getElementById("revert-changes-button").addEventListener("click", () => {
+            leave_edit_mode()
+        });
+
+        clone.getElementById("save-changes-button").addEventListener("click", () => {
+            editTr = edit_mode_items[1].querySelectorAll("input")
+            dict.edit_dict(
+                word, {"sp": edit_mode_items[0].querySelector("input").value, "de": editTr[0].value, "ar": editTr[1].value}
+            )
+
+            word = {"sp": edit_mode_items[0].querySelector("input").value, "de": editTr[0].value, "ar": editTr[1].value}
+
+            single_word.textContent = edit_mode_items[0].querySelector("input").value
+            translation[0].textContent = editTr[0].value
+            translation[1].textContent = editTr[1].value
+            leave_edit_mode()
+        })
+
         clone_container.appendChild(clone)
     });
 }

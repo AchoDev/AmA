@@ -60,20 +60,39 @@ const change_selected_letter = (letter) => selected_letter = letter
 const change_selected_tag = (tag) => selected_tag = tag
 
 function append_to_dict(word) {
-    
-
     dictionary = JSON.parse(rawData())
     dictionary.push(word)
 
+    write()
+
+    update_dict()
+}
+
+function write() {
     fs.writeFile("dictionary.json", JSON.stringify(dictionary, null, 4), (err) => {
         if (err) {
             alert("error\n\n" + err)
         }
     })
+}
 
-    update_dict()
+const compare = (obj1, obj2) => JSON.stringify(obj1) == JSON.stringify(obj2)
+
+function edit_dict(word, new_word) {
+    dictionary = JSON.parse(rawData())
+    dictionary.forEach((element, index, arr) => {
+        console.log(element)
+        if(compare(element, word)) {
+            arr[index] = new_word
+            console.warn("FOUND ONE")
+        }
+    });
+
+    console.log(word)
+
+    write()
 }
 
 update_dict()
 
-module.exports = {append_to_dict, update_dict, get_dictionary, change_selected_letter, change_selected_tag}
+module.exports = {append_to_dict, update_dict, get_dictionary, change_selected_letter, change_selected_tag, edit_dict}
