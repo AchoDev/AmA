@@ -5,7 +5,7 @@ const alphabet = ["A","B","C", "Ch","D","E","F","G","H","I","J","K","L","LL","M"
 get_elem = (name) => document.getElementById(name)
 
 
-tag_container = get_elem("tag-container");
+tag_container = get_elem("letter-container");
 letter_button = get_elem("char-button-template");
 
 tag_select_button = get_elem("tag-selector-button")
@@ -31,14 +31,33 @@ alphabet.forEach(letter => {
 
 });
 
+function close_menu() {
+    s = tag_select_menu.children[0].style
+    sb = tag_select_menu.style
+
+    sb.opacity = "0"
+    sb.visibility = "hidden"
+    s.transform = "scale(0.7)"
+}
+
+tag_select_menu.addEventListener("click", close_menu)
+
 tag_select_button.addEventListener("click", () => {
-    tag_select_menu.style.display = "flex"
+    s = tag_select_menu.children[0].style
+    sb = tag_select_menu.style
+    
+    sb.opacity = "1"
+    sb.visibility = "visible"
+    s.transform = "scale(1)"
 })
 
 for(let elem of tag_buttons) {
     elem.addEventListener("click", () => {
-        tag_select_menu.style.display = "None"
+        
+        close_menu()
+
         dict.change_selected_tag(elem.value)
         update.update()
+        
     })
 }

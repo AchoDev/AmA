@@ -9,6 +9,7 @@ body {
   flex-direction: column;
 }
 
+$theme-color: lighten(rgb(255, 145, 61), 0%);
 
 @mixin center_children{
   display: flex;
@@ -31,25 +32,56 @@ body {
   bottom: 50%;
 }
 
+#tag-selector-button {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100px;
+  width: 160px;
+
+  right: 10px;
+  top: 10px;
+
+  border: None;
+  border-radius: 5px;
+  font-size: 30px;
+
+  background-color: $theme-color;
+
+  transition: ease-in-out .2s;
+}
+
+#tag-selector-button:hover {
+  transform: scale(1.1);
+}
+
 #tag-selector-background {
   width: 100vw;
   height: 100vh;
+  transition: 0.1s linear,opacity 0.1s linear;
 
-
-
+  
+  visibility: hidden;
+  opacity: 0;
+  
+  
   position: fixed;
   background-color: rgba(0, 0, 0, 0.242);
-
+  
   z-index: 40;
-
+  
   @include center_children();
-
-  display: None;
-
+  
+  // display: None;
+  
   #tag-selector-container {
+    transition: 0.2s ease-out;
+    transform: scale(0.7);
+
     width: 70%;
     height: 60%;
-    background-color: aqua;
+    background-color: $theme-color;
+    border-radius: 10px;
   }
 }
 
@@ -62,18 +94,25 @@ body {
   width: 100vw;
   height: 150px;
 
+  align-items: center;
+
   z-index: 30;
 
   #page-index {
-    width: 200px;
+    width: 110px;
+    height: 50px;
+    border-radius: 5px;
     @include center_children();
-    font-size: 40px;
+    font-size: 25px;
+    background: $theme-color;
+    
   }
 
   #new-word-container {
-    background: rgb(96, 255, 71);
-    position: relative;
-    left: 0;
+    background: $theme-color;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;    left: 0;
     right: 0;
     margin-left: auto; 
     margin-right: auto; 
@@ -91,6 +130,8 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    height: 100%;
+    
     // background: blue;
 
     #add-button-wrapper {
@@ -115,30 +156,49 @@ body {
   background: rgb(255, 255, 255);
   width: 100%;
   @include center_children();
+
+  text-align: center;
   flex-direction: row;
   align-items:flex-end;
   flex-shrink: 0;
+  flex-wrap: nowrap;
 
-  #char-button {
-    background-color: white;
-    width: 46px;
-    height: 35px !important;
-
-    padding: 0;
-    font-size: 20px;
-    z-index: 10;
-
-    $button_radius: 5px;
-
-    border: None;
-
-    border-top-left-radius: $button_radius;
-    border-top-right-radius: $button_radius;
-    border: 1px solid rgba(0, 0, 0, 0.417);
-    border-bottom: 2px solid black;
-    margin: 0px 1px 0px 1px;
-
+  #logo {
+    width: 100px;
+    height: auto;
+    position: fixed;
+    left: 5px;
+    top: 5px;
   }
+
+  #letter-container {
+
+    display: flex;
+    flex-wrap: nowrap;
+    width: 75%;
+
+    #char-button {
+      background-color: darken(white, 1%);
+      width: 40px;
+      height: 35px !important;
+  
+      padding: 0;
+      font-size: 17px;
+      z-index: 10;
+  
+      $button_radius: 5px;
+  
+      border: None;
+  
+      border-top-left-radius: $button_radius;
+      border-top-right-radius: $button_radius;
+      border: 1px solid rgba(0, 0, 0, 0.417);
+      border-bottom: 2px solid black;
+      margin: 0px 1px 0px 1px;
+  
+    }
+  }
+
 }
 
 #language-container {
@@ -178,6 +238,14 @@ body {
 
     $dict_width: 70%;
     $side_margin: 10px;
+
+
+    $boder-color: rgb(171, 171, 171);
+
+    background: darken(white, 1%);
+    border-right: 1px solid $boder-color;
+    border-left: 1px solid $boder-color;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
     display: flex;
     flex-direction: column;
@@ -222,25 +290,36 @@ body {
             text-align: left;
             margin: 5px;
           }
+
+          border-bottom: .5px solid black;
           
-          $text_color: rgb(255, 102, 102);
+          $text_color: darken(rgb(255, 255, 255), 1%);
   
           #word1 {
             background: $text_color;
             margin: 5px;
             width: 17.5%;
             height: 100%;
+            // margin-right: 0;
+
+
+
+            color: blue;
             
             @include center_self();
-            
+            justify-content: flex-end;
+            text-align: right;
+
           }
           
           #colon {
-            width: 5%;
+            width: 1%;
             font-size: 20px;
             color: rgb(255, 255, 255);
             background-color: black;
             @include center_self();
+
+            margin: 0;
           }
   
           #translation {
@@ -250,6 +329,12 @@ body {
             height: 100%;
             flex-direction: row;
             width: 77.5%;
+
+            align-items: center;
+
+            color: black;
+
+            // margin-left: 0;
           }
         }
 

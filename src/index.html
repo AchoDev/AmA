@@ -16,12 +16,14 @@
         <h1>kategorie auswählen</h1>
         <button class="tag-button" value="any">alle</button>
         <button class="tag-button" value="verb">verben</button>
-        <button class="tag-button" value="adjective">adjektive</button>
+        <button class="tag-button" value="adj">adjektive</button>
         <button class="tag-button" value="noun">nomen</button>
-        <button class="tag-button" value="lorem">lorem</button>
+        <button class="tag-button" value="mix">Gemischt</button>
       </div>
     </div>
 
+
+    <button id="tag-selector-button">Kategorie</button>
 
     <div id="bottom-container">
 
@@ -40,6 +42,7 @@
             <option value="noun">Nomen</option>
             <option value="verb">Verb</option>
             <option value="adj">Adjektiv</option>
+            <option value="mix">Gemischt</option>
           </select>
 
           <button id="save-word-button">save</button>
@@ -55,14 +58,16 @@
     </div>
 
     <div id="tag-container">
-      <template id="char-button-template">
-        <button id="char-button">
-          A
-        </button>
-      </template>
 
-      <button id="tag-selector-button">kat..</button>
-      
+      <img src="../images/amalogo.png" alt="logo" id="logo">
+
+      <div id="letter-container">
+        <template id="char-button-template">
+          <button id="char-button">
+            A
+          </button>
+        </template>
+      </div>
     </div>
     
     <div id="language-container">

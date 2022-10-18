@@ -6,20 +6,42 @@ body {
   height: 100vh;
   flex-direction: column; }
 
+#tag-selector-button {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100px;
+  width: 160px;
+  right: 10px;
+  top: 10px;
+  border: None;
+  border-radius: 5px;
+  font-size: 30px;
+  background-color: #ff913d;
+  transition: ease-in-out .2s; }
+
+#tag-selector-button:hover {
+  transform: scale(1.1); }
+
 #tag-selector-background {
   width: 100vw;
   height: 100vh;
+  transition: 0.1s linear,opacity 0.1s linear;
+  visibility: hidden;
+  opacity: 0;
   position: fixed;
   background-color: rgba(0, 0, 0, 0.242);
   z-index: 40;
   display: flex;
   justify-content: center;
-  align-items: center;
-  display: None; }
+  align-items: center; }
   #tag-selector-background #tag-selector-container {
+    transition: 0.2s ease-out;
+    transform: scale(0.7);
     width: 70%;
     height: 60%;
-    background-color: aqua; }
+    background-color: #ff913d;
+    border-radius: 10px; }
 
 #bottom-container {
   position: fixed;
@@ -28,16 +50,22 @@ body {
   justify-content: space-between;
   width: 100vw;
   height: 150px;
+  align-items: center;
   z-index: 30; }
   #bottom-container #page-index {
-    width: 200px;
+    width: 110px;
+    height: 50px;
+    border-radius: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 40px; }
+    font-size: 25px;
+    background: #ff913d; }
   #bottom-container #new-word-container {
-    background: #60ff47;
-    position: relative;
+    background: #ff913d;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
     left: 0;
     right: 0;
     margin-left: auto;
@@ -50,7 +78,8 @@ body {
     width: 800px;
     display: flex;
     justify-content: space-around;
-    align-items: center; }
+    align-items: center;
+    height: 100%; }
     #bottom-container #word-create-container #add-button-wrapper {
       width: 15%;
       height: 100%;
@@ -69,22 +98,34 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
   flex-direction: row;
   align-items: flex-end;
-  flex-shrink: 0; }
-  #tag-container #char-button {
-    background-color: white;
-    width: 46px;
-    height: 35px !important;
-    padding: 0;
-    font-size: 20px;
-    z-index: 10;
-    border: None;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    border: 1px solid rgba(0, 0, 0, 0.417);
-    border-bottom: 2px solid black;
-    margin: 0px 1px 0px 1px; }
+  flex-shrink: 0;
+  flex-wrap: nowrap; }
+  #tag-container #logo {
+    width: 100px;
+    height: auto;
+    position: fixed;
+    left: 5px;
+    top: 5px; }
+  #tag-container #letter-container {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 75%; }
+    #tag-container #letter-container #char-button {
+      background-color: #fcfcfc;
+      width: 40px;
+      height: 35px !important;
+      padding: 0;
+      font-size: 17px;
+      z-index: 10;
+      border: None;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      border: 1px solid rgba(0, 0, 0, 0.417);
+      border-bottom: 2px solid black;
+      margin: 0px 1px 0px 1px; }
 
 #language-container {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -109,6 +150,10 @@ body {
       right: 0;
       left: 10px; }
   #language-container #dictionary {
+    background: #fcfcfc;
+    border-right: 1px solid #ababab;
+    border-left: 1px solid #ababab;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     display: flex;
     flex-direction: column;
     width: 80vw;
@@ -134,36 +179,43 @@ body {
         display: flex;
         justify-content: left;
         align-items: center;
-        margin: 10px; }
+        margin: 10px;
+        border-bottom: .5px solid black; }
         #language-container #dictionary #word-container #single-word-container div {
           width: auto;
           text-align: left;
           margin: 5px; }
         #language-container #dictionary #word-container #single-word-container #word1 {
-          background: #ff6666;
+          background: #fcfcfc;
           margin: 5px;
           width: 17.5%;
           height: 100%;
+          color: blue;
           display: flex;
           justify-content: center;
           align-self: center;
-          align-items: center; }
+          align-items: center;
+          justify-content: flex-end;
+          text-align: right; }
         #language-container #dictionary #word-container #single-word-container #colon {
-          width: 5%;
+          width: 1%;
           font-size: 20px;
           color: white;
           background-color: black;
           display: flex;
           justify-content: center;
           align-self: center;
-          align-items: center; }
+          align-items: center;
+          margin: 0; }
         #language-container #dictionary #word-container #single-word-container #translation {
-          background: #ff6666;
+          background: #fcfcfc;
           margin: 5px;
           display: flex;
           height: 100%;
           flex-direction: row;
-          width: 77.5%; }
+          width: 77.5%;
+          align-items: center;
+          color: black; }
       #language-container #dictionary #word-container #word-clone-wrapper {
         width: 100%;
         height: 100%;
