@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="index.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Arimo&display=swap" rel="stylesheet">
+
+  </head>
+  <body>
+
+    <div id="tag-selector-background">
+      <div id="tag-selector-container">
+        <h1>kategorie auswählen</h1>
+        <button>verben</button>
+        <button>adjektive</button>
+        <button>kat</button>
+        <button>kat</button>
+        <button id="select-tag-button">auswählen</button>
+      </div>
+    </div>
+
+
+    <div id="bottom-container">
+
+      <div id="page-index">
+        Page 1/999
+      </div>
+      
+      <div id="word-create-container">
+        <div id="new-word-container">
+          <input type="text" placeholder="Spanisch">
+          <input type="text" placeholder="Deutsch">
+          <input type="text" placeholder="Arabisch">
+          <button id="save-word-button">save</button>
+        </div>
+  
+        <div id="add-button-wrapper">
+          <button id="add-button">
+            +
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <div id="tag-container">
+      <template id="char-button-template">
+        <button id="char-button">
+          A
+        </button>
+      </template>
+
+      <button id="tag-selector-button">kat..</button>
+      
+    </div>
+    
+    <div id="language-container">
+      <div class="page-button-wrapper">
+        <button class="page-button" id="left-page-button">
+          &ltcc;
+        </button>
+
+      </div>
+
+      <div id="dictionary">
+        
+        <div id="word-container">
+
+          <div id="lang-name-container">
+            <div>Spanisch</div>
+            <div>Deutsch</div>
+            <div>Arabisch</div>
+          </div>
+
+
+          <template id="word-container-template">
+            <div id="single-word-container">
+              <div id="word1">hola</div>
+
+              <div id="colon">:</div>
+
+              <div id="translation">
+                <div id="word2">hallo</div>
+                <div id="word3">selam</div>
+              </div>
+            </div>
+          </template>
+
+          <div id="word-clone-wrapper"> </div>
+
+        </div>
+      </div>
+
+      <div class="page-button-wrapper">
+        <button class="page-button" id="right-page-button">
+          &gtcc;
+        </button>
+      </div>
+    </div>
+    
+  </body>
+
+
+  <script src="tags.js"></script>
+  <script src="create_word.js"></script>
+  <script src="load_dict.js"></script>
+</html>

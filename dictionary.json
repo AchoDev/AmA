@@ -1,0 +1,652 @@
+[
+    {
+        "sp": "a",
+        "de": "a",
+        "ar": "a"
+    },
+    {
+        "sp": "e",
+        "de": "e",
+        "ar": "e"
+    },
+    {
+        "sp": "aa",
+        "de": "aa",
+        "ar": "aa"
+    },
+    {
+        "sp": "ch",
+        "de": "ch",
+        "ar": "h"
+    },
+    {
+        "sp": "ño",
+        "de": "nein",
+        "ar": "la"
+    },
+    {
+        "sp": "a",
+        "de": "a",
+        "ar": "a"
+    },
+    {
+        "sp": "e",
+        "de": "e",
+        "ar": "e"
+    },
+    {
+        "sp": "aa",
+        "de": "aa",
+        "ar": "aa"
+    },
+    {
+        "sp": "ch",
+        "de": "ch",
+        "ar": "h"
+    },
+    {
+        "sp": "ño",
+        "de": "nein",
+        "ar": "la"
+    },
+    {
+        "sp": "ch",
+        "de": "ch",
+        "ar": "h"
+    },
+    {
+        "sp": "ño",
+        "de": "nein",
+        "ar": "la"
+    },
+    {
+        "sp": "a",
+        "de": "a",
+        "ar": "a"
+    },
+    {
+        "sp": "e",
+        "de": "e",
+        "ar": "e"
+    },
+    {
+        "sp": "aa",
+        "de": "aa",
+        "ar": "aa"
+    },
+    {
+        "sp": "ch",
+        "de": "ch",
+        "ar": "h"
+    },
+    {
+        "sp": "ño",
+        "de": "nein",
+        "ar": "la"
+    },
+    {
+        "sp": "ch",
+        "de": "ch",
+        "ar": "h"
+    },
+    {
+        "sp": "ño",
+        "de": "nein",
+        "ar": "la"
+    },
+    {
+        "sp": "a",
+        "de": "a",
+        "ar": "a"
+    },
+    {
+        "sp": "e",
+        "de": "e",
+        "ar": "e"
+    },
+    {
+        "sp": "aa",
+        "de": "aa",
+        "ar": "aa"
+    },
+    {
+        "sp": "ch",
+        "de": "ch",
+        "ar": "h"
+    },
+    {
+        "sp": "ño",
+        "de": "nein",
+        "ar": "la"
+    },
+    {
+        "sp": "ch",
+        "de": "ch",
+        "ar": "h"
+    },
+    {
+        "sp": "ño",
+        "de": "nein",
+        "ar": "la"
+    },
+    {
+        "sp": "a",
+        "de": "a",
+        "ar": "a"
+    },
+    {
+        "sp": "e",
+        "de": "e",
+        "ar": "e"
+    },
+    {
+        "sp": "aa",
+        "de": "aa",
+        "ar": "aa"
+    },
+    {
+        "sp": "ch",
+        "de": "ch",
+        "ar": "h"
+    },
+    {
+        "sp": "ño",
+        "de": "nein",
+        "ar": "la"
+    },
+    {
+        "sp": "ch",
+        "de": "ch",
+        "ar": "h"
+    },
+    {
+        "sp": "ño",
+        "de": "nein",
+        "ar": "la"
+    },
+    {
+        "sp": "a",
+        "de": "a",
+        "ar": "a"
+    },
+    {
+        "sp": "e",
+        "de": "e",
+        "ar": "e"
+    },
+    {
+        "sp": "aa",
+        "de": "aa",
+        "ar": "aa"
+    },
+    {
+        "sp": "ch",
+        "de": "ch",
+        "ar": "h"
+    },
+    {
+        "sp": "ño",
+        "de": "nein",
+        "ar": "la"
+    },
+    {
+        "sp": "ch",
+        "de": "ch",
+        "ar": "h"
+    },
+    {
+        "sp": "ño",
+        "de": "nein",
+        "ar": "la"
+    },
+    {
+        "sp": "a",
+        "de": "a",
+        "ar": "a"
+    },
+    {
+        "sp": "e",
+        "de": "e",
+        "ar": "e"
+    },
+    {
+        "sp": "aa",
+        "de": "aa",
+        "ar": "aa"
+    },
+    {
+        "sp": "ch",
+        "de": "ch",
+        "ar": "h"
+    },
+    {
+        "sp": "ño",
+        "de": "nein",
+        "ar": "la"
+    },
+    {
+        "sp": "ch",
+        "de": "ch",
+        "ar": "h"
+    },
+    {
+        "sp": "ño",
+        "de": "nein",
+        "ar": "la"
+    },
+    {
+        "sp": "a",
+        "de": "a",
+        "ar": "a"
+    },
+    {
+        "sp": "e",
+        "de": "e",
+        "ar": "e"
+    },
+    {
+        "sp": "aa",
+        "de": "aa",
+        "ar": "aa"
+    },
+    {
+        "sp": "ch",
+        "de": "ch",
+        "ar": "h"
+    },
+    {
+        "sp": "ño",
+        "de": "nein",
+        "ar": "la"
+    },
+    {
+        "sp": "ch",
+        "de": "ch",
+        "ar": "h"
+    },
+    {
+        "sp": "ño",
+        "de": "nein",
+        "ar": "la"
+    },
+    {
+        "sp": "a",
+        "de": "a",
+        "ar": "a"
+    },
+    {
+        "sp": "e",
+        "de": "e",
+        "ar": "e"
+    },
+    {
+        "sp": "aa",
+        "de": "aa",
+        "ar": "aa"
+    },
+    {
+        "sp": "ch",
+        "de": "ch",
+        "ar": "h"
+    },
+    {
+        "sp": "ño",
+        "de": "nein",
+        "ar": "la"
+    },
+    {
+        "sp": "ch",
+        "de": "ch",
+        "ar": "h"
+    },
+    {
+        "sp": "ño",
+        "de": "nein",
+        "ar": "la"
+    },
+    {
+        "sp": "a",
+        "de": "a",
+        "ar": "a"
+    },
+    {
+        "sp": "e",
+        "de": "e",
+        "ar": "e"
+    },
+    {
+        "sp": "aa",
+        "de": "aa",
+        "ar": "aa"
+    },
+    {
+        "sp": "ch",
+        "de": "ch",
+        "ar": "h"
+    },
+    {
+        "sp": "ño",
+        "de": "nein",
+        "ar": "la"
+    },
+    {
+        "sp": "ch",
+        "de": "ch",
+        "ar": "h"
+    },
+    {
+        "sp": "ño",
+        "de": "nein",
+        "ar": "la"
+    },
+    {
+        "sp": "a",
+        "de": "a",
+        "ar": "a"
+    },
+    {
+        "sp": "e",
+        "de": "e",
+        "ar": "e"
+    },
+    {
+        "sp": "aa",
+        "de": "aa",
+        "ar": "aa"
+    },
+    {
+        "sp": "ch",
+        "de": "ch",
+        "ar": "h"
+    },
+    {
+        "sp": "ño",
+        "de": "nein",
+        "ar": "la"
+    },
+    {
+        "sp": "b",
+        "de": "",
+        "ar": ""
+    },
+    {
+        "sp": "aaaadfsafd",
+        "de": "aa",
+        "ar": "aa"
+    },
+    {
+        "sp": "",
+        "de": "",
+        "ar": ""
+    },
+    {
+        "sp": "aaaadfsafd",
+        "de": "aa",
+        "ar": "aa"
+    },
+    {
+        "sp": "aaaadfsafd",
+        "de": "aa",
+        "ar": "aa"
+    },
+    {
+        "sp": "aaaadfsafd",
+        "de": "aa",
+        "ar": "aa"
+    },
+    {
+        "sp": "aaaadfsafd",
+        "de": "aa",
+        "ar": "aa"
+    },
+    {
+        "sp": "aaaadfsafd",
+        "de": "hallo",
+        "ar": "selam saleykom"
+    },
+    {
+        "sp": "aaaadfsafd",
+        "de": "aa",
+        "ar": "aa"
+    },
+    {
+        "sp": "aaaadfsafd",
+        "de": "aa",
+        "ar": "aa"
+    },
+    {
+        "sp": "aaaadfsafd",
+        "de": "aa",
+        "ar": "aa"
+    },
+    {
+        "sp": "aaaadfsafd",
+        "de": "aa",
+        "ar": "aa"
+    },
+    {
+        "sp": "aaaadfsafd",
+        "de": "aa",
+        "ar": "aa"
+    },
+    {
+        "sp": "aaaadfsafd",
+        "de": "aa",
+        "ar": "aa"
+    },
+    {
+        "sp": "aaaadfsafd",
+        "de": "aa",
+        "ar": "aa"
+    },
+    {
+        "sp": "aaaadfsafd",
+        "de": "aa",
+        "ar": "aa"
+    },
+    {
+        "sp": "aaaadfsafd",
+        "de": "aa",
+        "ar": "aa"
+    },
+    {
+        "sp": "aaaadfsafd",
+        "de": "aa",
+        "ar": "aa"
+    },
+    {
+        "sp": "aaaadfsafd",
+        "de": "aa",
+        "ar": "aa"
+    },
+    {
+        "sp": "aaaadfsafd",
+        "de": "aa",
+        "ar": "aa"
+    },
+    {
+        "sp": "aaaadfsafd",
+        "de": "aa",
+        "ar": "aa"
+    },
+    {
+        "sp": "aaaadfsafd",
+        "de": "aa",
+        "ar": "aa"
+    },
+    {
+        "sp": "aaaadfsafd",
+        "de": "aa",
+        "ar": "aa"
+    },
+    {
+        "sp": "aaaadfsafd",
+        "de": "aa",
+        "ar": "aa"
+    },
+    {
+        "sp": "aaaadfsafd",
+        "de": "aa",
+        "ar": "aa"
+    },
+    {
+        "sp": "aaaadfsafd",
+        "de": "aa",
+        "ar": "aa"
+    },
+    {
+        "sp": "aaaadfsafd",
+        "de": "aa",
+        "ar": "aa"
+    },
+    {
+        "sp": "aaaadfsafd",
+        "de": "aa",
+        "ar": "aa"
+    },
+    {
+        "sp": "aaaadfsafd",
+        "de": "aa",
+        "ar": "aa"
+    },
+    {
+        "sp": "aaaadfsafd",
+        "de": "aa",
+        "ar": "aa"
+    },
+    {
+        "sp": "aaaadfsafd",
+        "de": "aa",
+        "ar": "aa"
+    },
+    {
+        "sp": "aaaadfsafd",
+        "de": "aa",
+        "ar": "aa"
+    },
+    {
+        "sp": "aaaadfsafd",
+        "de": "aa",
+        "ar": "aa"
+    },
+    {
+        "sp": "aaaadfsafd",
+        "de": "aa",
+        "ar": "aa"
+    },
+    {
+        "sp": "aaaadfsafd",
+        "de": "aa",
+        "ar": "aa"
+    },
+    {
+        "sp": "aaaadfsafd",
+        "de": "aa",
+        "ar": "aa"
+    },
+    {
+        "sp": "aaaadfsafd",
+        "de": "aa",
+        "ar": "aa"
+    },
+    {
+        "sp": "aaaadfsafd",
+        "de": "aa",
+        "ar": "aa"
+    },
+    {
+        "sp": "aaaadfsafd",
+        "de": "aa",
+        "ar": "aa"
+    },
+    {
+        "sp": "aaaadfsafd",
+        "de": "aa",
+        "ar": "aa"
+    },
+    {
+        "sp": "aaaadfsafd",
+        "de": "aa",
+        "ar": "aa"
+    },
+    {
+        "sp": "aaaadfsafd",
+        "de": "aa",
+        "ar": "aa"
+    },
+    {
+        "sp": "aaaadfsafd",
+        "de": "aa",
+        "ar": "aa"
+    },
+    {
+        "sp": "aaaadfsafd",
+        "de": "aa",
+        "ar": "aa"
+    },
+    {
+        "sp": "aaaadfsafd",
+        "de": "aa",
+        "ar": "aa"
+    },
+    {
+        "sp": "aaaadfsafd",
+        "de": "aa",
+        "ar": "aa"
+    },
+    {
+        "sp": "aaaadfsafd",
+        "de": "aa",
+        "ar": "aa"
+    },
+    {
+        "sp": "aaaadfsafd",
+        "de": "aa",
+        "ar": "aa"
+    },
+    {
+        "sp": "aaaadfsafd",
+        "de": "aa",
+        "ar": "aa"
+    },
+    {
+        "sp": "aaaadfsafd",
+        "de": "aa",
+        "ar": "aa"
+    },
+    {
+        "sp": "aaaadfsafd",
+        "de": "aa",
+        "ar": "aa"
+    },
+    {
+        "sp": "aaaadfsafd",
+        "de": "aa",
+        "ar": "aa"
+    },
+    {
+        "sp": "aaaadfsafd",
+        "de": "aa",
+        "ar": "aa"
+    },
+    {
+        "sp": "aaaadfsafd",
+        "de": "aa",
+        "ar": "aa"
+    },
+    {
+        "sp": "aaaadfsafd",
+        "de": "aa",
+        "ar": "aa"
+    },
+    {
+        "sp": "aaaadfsafd",
+        "de": "aa",
+        "ar": "aa"
+    },
+    {
+        "sp": "aaaadfsafd",
+        "de": "aa",
+        "ar": "aa"
+    }
+]
