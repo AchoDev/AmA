@@ -14,11 +14,11 @@
     <div id="tag-selector-background">
       <div id="tag-selector-container">
         <h1>kategorie auswählen</h1>
-        <button>verben</button>
-        <button>adjektive</button>
-        <button>kat</button>
-        <button>kat</button>
-        <button id="select-tag-button">auswählen</button>
+        <button class="tag-button" value="any">alle</button>
+        <button class="tag-button" value="verb">verben</button>
+        <button class="tag-button" value="adjective">adjektive</button>
+        <button class="tag-button" value="noun">nomen</button>
+        <button class="tag-button" value="lorem">lorem</button>
       </div>
     </div>
 
@@ -34,6 +34,14 @@
           <input type="text" placeholder="Spanisch">
           <input type="text" placeholder="Deutsch">
           <input type="text" placeholder="Arabisch">
+
+          <select name="tag" id="tag-selector">
+            <option value="temp">Kategorie auswählen</option>
+            <option value="noun">Nomen</option>
+            <option value="verb">Verb</option>
+            <option value="adj">Adjektiv</option>
+          </select>
+
           <button id="save-word-button">save</button>
         </div>
   

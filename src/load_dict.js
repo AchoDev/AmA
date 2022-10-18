@@ -1,7 +1,8 @@
-const dict = require("./dict")
+dict = require("./dict")
+// const update = require("./update")
 const fs = require("fs")
 
- 
+let get_elem = (name) => document.getElementById(name)
 
 const word_container_template = document.getElementById("word-container-template")
 const clone_container = get_elem("word-clone-wrapper")
@@ -71,4 +72,4 @@ function update_page() {
 
 update_page()
 
-module.exports = {dict, update_page}
+module.exports = {update_page}

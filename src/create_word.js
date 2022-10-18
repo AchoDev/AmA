@@ -3,6 +3,9 @@
 const dictionary = require("./dict")
 const load_dict = require("./load_dict")
 
+get_elem = (name) => document.getElementById(name)
+
+
 // check_null = (list) => {
 //     return false
     
@@ -39,21 +42,18 @@ new_word_button.addEventListener("click", move_container)
 save_button.addEventListener("click", () => {
     const values = Array.from(new_word_container.children)
     const check_null = (value) => value ? value : ""
-
+    e = values[3]
 
     dict.append_to_dict({
         "sp": check_null(values[0].value),
         "de": check_null(values[1].value),
-        "ar": check_null(values[2].value)
+        "ar": check_null(values[2].value),
+        "tag": check_null(e.options[e.selectedIndex].value)
     })
-
-    console.log(values)
 
     values[0].value = null
     values[1].value = null
     values[2].value = null
-
-    
 
     move_container()
     dictionary.update_dict()
