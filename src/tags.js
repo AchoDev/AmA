@@ -1,5 +1,6 @@
 
 
+const { match } = require("assert");
 const update = require("./update")
 const alphabet = ["A","B","C", "Ch","D","E","F","G","H","I","J","K","L","LL","M","N","Ñ","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 
@@ -13,6 +14,7 @@ tag_select_button = get_elem("tag-selector-button")
 tag_select_menu = get_elem("tag-selector-background")
 
 tag_button_template = get_elem("tag-button-template")
+page_button_template = get_elem("select-page-button-template")
 
 tag_option_template = get_elem("tag-option-template")
 
@@ -31,8 +33,17 @@ const tagRawData = () => {
 }
 
 tag_buttons = document.getElementsByClassName("tag-button")
+page_buttons = document.getElementsByClassName("select-page-button")
 
-for(element of JSON.parse(tagRawData())) {
+tags = []
+pages = []
+
+for(let element of JSON.parse(tagRawData())) {
+    if (element.type == "word") {tags.push(element)}
+    else {pages.push(element)}
+}
+
+for(element of tags) {
 
     let name = element.name
     let value = element.name
@@ -55,27 +66,62 @@ for(element of JSON.parse(tagRawData())) {
     
     tag_button_template.parentNode.appendChild(btnClone)
 
-    if (element.type == "word") {
-        tag_option_template.parentNode.appendChild(optClone)
-    }
+
+    tag_option_template.parentNode.appendChild(optClone)
+    
+}
+
+for(let page of pages) {
+    const clone = page_button_template.content.cloneNode(true)
+    const btn = clone.querySelector("button")
+
+    btn.innerText = page.name
+    btn.value = page.name
+
+    page_button_template.parentNode.appendChild(clone)
 }
 
 alphabet.forEach(letter => {
     const clone = letter_button.content.cloneNode(true)
     const button = clone.querySelector("button")
     button.textContent = `${letter} ${letter.toLowerCase()}`
+    
+    let isPressed = false
+
+    let mofunc = () => {if(!isPressed){button.style.transform = "translateY(-1px)"}}
+    let mlfunc = () => {if(!isPressed) {button.style.transform = "translateY(5px)"}}
+
+
+    // const event = new Event("notPressed", {bubbles: true}) 
+    
+    // button.dispatchElement(event)
+    // button.addEventListener("notPressed", (e) => {
+    //     alert("event trigger")
+    // })
+
+
+
+    button.addEventListener("mouseover", mofunc)
+    button.addEventListener("mouseleave", mlfunc)
+    
     button.addEventListener("click", () => {
         dict.change_selected_letter(letter)
         dict.update_dict()
         load_dict.update_page()
 
-        for (element of tag_container.children) {
+        isPressed = true;
+
+        for (let element of tag_container.children) {
             element.style.borderBottom = "2px solid black"
+            element.style.zIndex = "5";
+            element.style.transform = "translateY(5px)"
         }
+
+        button.style.zIndex = "15";
+        button.style.transform = "translateY(1px)"
         button.style.borderBottom = "None"
     })
     tag_container.appendChild(clone)
-
 });
 
 function close_menu() {
@@ -108,4 +154,10 @@ for(let elem of tag_buttons) {
         
     })
 }
+
+ for(let btn of page_buttons) {
+    btn.addEventListener("click", () => {
+        update.update()
+    })
+ }
 

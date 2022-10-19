@@ -20,7 +20,7 @@ body {
   font-size: 30px;
   background-color: #ffa35d;
   cursor: pointer;
-  transition: ease-in-out .2s; }
+  transition: cubic-bezier(0.165, 0.84, 0.44, 1) 0.2s; }
 
 #tag-selector-button:hover {
   transform: scale(1.1); }
@@ -50,10 +50,23 @@ body {
     border-radius: 10px;
     overflow: scroll;
     z-index: 41; }
-    #tag-selector-background #tag-selector-container button {
-      width: 190px;
-      height: 120px;
-      font-size: 40px; }
+    #tag-selector-background #tag-selector-container h1 {
+      position: relative;
+      display: block; }
+    #tag-selector-background #tag-selector-container .button {
+      width: 180px;
+      height: 110px;
+      font-size: 40px;
+      border-radius: 5px;
+      margin: 5px;
+      transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.2s; }
+    #tag-selector-background #tag-selector-container .button:hover {
+      transform: scale(1.1); }
+    #tag-selector-background #tag-selector-container #tag-container {
+      height: auto;
+      display: flex;
+      flex-wrap: wrap;
+      background: None; }
 
 #bottom-container {
   position: fixed;
@@ -116,11 +129,12 @@ body {
   flex-shrink: 0;
   flex-wrap: nowrap; }
   #tag-container #logo {
-    width: 100px;
+    width: 150px;
     height: auto;
     position: fixed;
     left: 5px;
-    top: 5px; }
+    top: 5px;
+    z-index: 15; }
   #tag-container #letter-container {
     display: flex;
     flex-wrap: nowrap;
@@ -131,20 +145,26 @@ body {
       height: 35px !important;
       padding: 0;
       font-size: 17px;
-      z-index: 10;
+      z-index: 5;
       border: None;
       border-top-left-radius: 5px;
       border-top-right-radius: 5px;
       border: 1px solid rgba(0, 0, 0, 0.417);
       border-bottom: 2px solid black;
-      margin: 0px 1px 0px 1px; }
+      margin: 0px 1px 0px 1px;
+      transform: translateY(5px);
+      transition: cubic-bezier(0.165, 0.84, 0.44, 1) 0.1s; }
+    #tag-container #letter-container #char-button:hover {
+      background: #f2f2f2;
+      transform: translateY(-1px); }
 
 #language-container {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   background-color: white;
   flex-grow: 1;
   display: flex;
-  flex-direction: row; }
+  flex-direction: row;
+  z-index: 10; }
   #language-container .page-button-wrapper {
     width: 10vw;
     position: relative; }
@@ -154,13 +174,29 @@ body {
       font-size: 75px;
       position: fixed;
       top: 50%;
-      bottom: 50%; }
+      bottom: 50%;
+      transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.4s;
+      background: #ffa35d;
+      color: white;
+      border: None;
+      border: 1px solid #7a7a7a;
+      border-radius: 12px; }
+    #language-container .page-button-wrapper .page-button:hover {
+      transform: scale(1.1); }
+    #language-container .page-button-wrapper .page-button:active {
+      transition: cubic-bezier(0.165, 0.84, 0.44, 1) 0.1s;
+      transform: scale(1.1);
+      background-color: #ffddc3; }
+    #language-container .page-button-wrapper #right-page-button:active {
+      transform: translateX(10px); }
+    #language-container .page-button-wrapper #left-page-button:active {
+      transform: translateX(-10px); }
     #language-container .page-button-wrapper #right-page-button {
       left: 100;
-      right: 10px; }
+      right: 30px; }
     #language-container .page-button-wrapper #left-page-button {
       right: 0;
-      left: 10px; }
+      left: 30px; }
   #language-container #dictionary {
     background: #fcfcfc;
     border-right: 1px solid #ababab;
