@@ -2,7 +2,7 @@
 
 const load_page = require("./pages")
 const update = require("./update")
-const alphabet = ["A","B","C", "Ch","D","E","F","G","H","I","J","K","L","LL","M","N","Ñ","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+const alphabet = ["All", "A","B","C", "Ch","D","E","F","G","H","I","J","K","L","LL","M","N","Ñ","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 
 get_elem = (name) => document.getElementById(name)
 
@@ -84,9 +84,22 @@ for(let page of pages) {
 alphabet.forEach(letter => {
     const clone = letter_button.content.cloneNode(true)
     const button = clone.querySelector("button")
-    button.textContent = `${letter} ${letter.toLowerCase()}`
+    
     
     let isPressed = false
+    
+    if(letter != "All") {
+        button.textContent = `${letter} ${letter.toLowerCase()}`
+    } else {
+        button.textContent = "All"
+        isPressed = true
+        button.style.zIndex = "15";
+        button.style.transform = "translateY(1px)"
+        button.style.borderBottom = "None"
+
+        button.style.color = "orange";
+    }
+    
 
     let mofunc = () => {if(!isPressed){button.style.transform = "translateY(-1px)"}}
     let mlfunc = () => {if(!isPressed) {button.style.transform = "translateY(5px)"}}
@@ -105,7 +118,11 @@ alphabet.forEach(letter => {
     button.addEventListener("mouseleave", mlfunc)
     
     button.addEventListener("click", () => {
-        dict.change_selected_letter(letter)
+        if(letter != "All") {
+            dict.change_selected_letter(letter)
+        } else {
+            dict.change_selected_letter("any")
+        }
         dict.update_dict()
         load_dict.update_page()
 
@@ -144,20 +161,31 @@ tag_select_button.addEventListener("click", () => {
     s.transform = "scale(1)"
 })
 
+const selected_tag_indicator = get_elem("selected-tag-indicator")
+
+
 for(let elem of tag_buttons) {
     elem.addEventListener("click", () => {
         
         close_menu()
+        load_page.deload_page()
 
         dict.change_selected_tag(elem.value)
         update.update()
+
+        if(elem.value != "any") {
+            selected_tag_indicator.style.display = "inherit"
+            selected_tag_indicator.innerText = `Kategorie: ${elem.value}`
+        } else {
+            selected_tag_indicator.style.display = "none"
+        }
         
     })
 }
 
  for(let btn of page_buttons) {
     btn.addEventListener("click", () => {
-        load_page.load_page()
+        load_page.load_page(btn.value)
     })
  }
 

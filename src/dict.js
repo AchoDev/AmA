@@ -30,7 +30,11 @@ function update_dict() {
 
     if (selected_letter != "any") {
         for(let i = 0; i < dictionary.length; i++){
-            if(dictionary[i].sp.charAt(0).toUpperCase() != selected_letter) {
+            let dicLetter = dictionary[i].sp.charAt(0).toUpperCase()
+            firstTwo = dictionary[i].sp.substring(0, 2).toUpperCase()
+
+            if(firstTwo.toUpperCase() == "CH" || firstTwo.toUpperCase() == "LL") dicLetter = firstTwo
+            if(dicLetter != selected_letter.toUpperCase()) {
                 dictionary.splice(i, 1)
                 i--
             }
@@ -38,6 +42,7 @@ function update_dict() {
     }
 
 
+    console.log(selected_tag)
 
     if (selected_tag != "any") {
         for(let i = 0; i < dictionary.length; i++){
@@ -65,7 +70,6 @@ function append_to_dict(word) {
     dictionary.push(word)
 
     write()
-
     update_dict()
 }
 

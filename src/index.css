@@ -11,14 +11,15 @@ body {
   right: 0;
   top: 0;
   height: 100px;
-  width: 160px;
+  width: 140px;
+  color: white;
   right: 10px;
   top: 10px;
   z-index: 20;
   border: None;
-  border-radius: 5px;
+  border-radius: 10px;
   font-size: 30px;
-  background-color: #ffa35d;
+  background-color: #ff9a4c;
   cursor: pointer;
   transition: cubic-bezier(0.165, 0.84, 0.44, 1) 0.2s; }
 
@@ -46,7 +47,7 @@ body {
     width: 70%;
     height: 90%;
     margin-top: 60px;
-    background-color: #ffa35d;
+    background-color: #ff9a4c;
     border-radius: 10px;
     overflow: scroll;
     z-index: 41; }
@@ -85,9 +86,10 @@ body {
     justify-content: center;
     align-items: center;
     font-size: 25px;
-    background: #ffa35d; }
+    background: #ff9a4c;
+    color: white; }
   #bottom-container #new-word-container {
-    background: #ffa35d;
+    background: #ff9a4c;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
@@ -97,8 +99,46 @@ body {
     margin-right: auto;
     width: 700px;
     height: 100%;
+    display: flex;
+    flex-direction: row;
     transform: translateY(150px);
     transition: ease-in-out .3s; }
+    #bottom-container #new-word-container #input-container {
+      height: 100%;
+      width: 50%;
+      display: flex;
+      flex-direction: column; }
+      #bottom-container #new-word-container #input-container input {
+        height: 33%;
+        margin: 5px;
+        border: none;
+        border: 1px solid #8f8f8f;
+        border-radius: 8px; }
+    #bottom-container #new-word-container #input-save-container {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      justify-content: space-around;
+      align-items: center; }
+      #bottom-container #new-word-container #input-save-container #tag-selector {
+        width: 70%;
+        height: 20%;
+        border-radius: 10px; }
+      #bottom-container #new-word-container #input-save-container #save-word-button {
+        width: 200px;
+        height: 80px;
+        font-size: 40px;
+        border: none;
+        border-radius: 15px;
+        color: #ff9a4c;
+        background: white;
+        transition: cubic-bezier(0.215, 0.61, 0.355, 1) 0.2s; }
+      #bottom-container #new-word-container #input-save-container #save-word-button:hover {
+        box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+        transform: scale(1.05) translateY(-10px); }
+      #bottom-container #new-word-container #input-save-container #save-word-button:active {
+        transform: scale(1) translateY(0px); }
   #bottom-container #word-create-container {
     width: 800px;
     display: flex;
@@ -106,15 +146,33 @@ body {
     align-items: center;
     height: 100%; }
     #bottom-container #word-create-container #add-button-wrapper {
-      width: 15%;
       height: 100%;
       display: flex;
       align-items: center;
-      justify-content: center; }
+      justify-content: center;
+      width: 150px; }
       #bottom-container #word-create-container #add-button-wrapper button {
-        width: 50px;
-        height: 50px;
-        font-size: 15px; }
+        width: 70px;
+        height: 70px;
+        font-size: 55px;
+        color: white;
+        background-color: #ff9a4c;
+        border: 1px solid #909090;
+        border-radius: 20px; }
+      #bottom-container #word-create-container #add-button-wrapper #add-button p {
+        margin: 0;
+        padding: 0;
+        transition: cubic-bezier(0.455, 0.03, 0.515, 0.955) 0.2s; }
+      #bottom-container #word-create-container #add-button-wrapper #save-page-button {
+        display: None;
+        width: 100px;
+        font-size: 20px;
+        transition: cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s; }
+      #bottom-container #word-create-container #add-button-wrapper #save-page-button:hover {
+        transform: scale(1.1);
+        box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset; }
+      #bottom-container #word-create-container #add-button-wrapper #save-page-button:active {
+        transform: scale(1); }
 
 #tag-container {
   height: 70px;
@@ -141,13 +199,13 @@ body {
   #tag-container #letter-container {
     display: flex;
     flex-wrap: nowrap;
-    width: 75%; }
+    width: 79%; }
     #tag-container #letter-container #char-button {
       background-color: #fcfcfc;
       width: 40px;
-      height: 35px !important;
+      height: 45px !important;
       padding: 0;
-      font-size: 17px;
+      font-size: 20px;
       z-index: 5;
       border: None;
       border-top-left-radius: 5px;
@@ -179,7 +237,7 @@ body {
       top: 50%;
       bottom: 50%;
       transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.4s;
-      background: #ffa35d;
+      background: #ff9a4c;
       color: white;
       border: None;
       border: 1px solid #7a7a7a;
@@ -189,7 +247,7 @@ body {
     #language-container .page-button-wrapper .page-button:active {
       transition: cubic-bezier(0.165, 0.84, 0.44, 1) 0.1s;
       transform: scale(1.1);
-      background-color: #ffddc3; }
+      background-color: #ffd4b2; }
     #language-container .page-button-wrapper #right-page-button:active {
       transform: translateX(10px); }
     #language-container .page-button-wrapper #left-page-button:active {
@@ -239,6 +297,16 @@ body {
       align-items: center; }
       #language-container #dictionary #word-container #single-word-container:hover #edit-button img {
         opacity: .3; }
+      #language-container #dictionary #word-container #selected-tag-indicator {
+        display: None;
+        position: absolute;
+        top: 10%;
+        left: 12%;
+        background: #ff9a4c;
+        font-size: 20px;
+        padding: 5px;
+        color: white;
+        border-radius: 5px; }
       #language-container #dictionary #word-container #single-word-container {
         width: 70%;
         height: 50px;
@@ -253,7 +321,7 @@ body {
           margin: 5px; }
         #language-container #dictionary #word-container #single-word-container .edit-mode {
           display: None;
-          background-color: #ffa35d;
+          background-color: #ff9a4c;
           height: 100%; }
         #language-container #dictionary #word-container #single-word-container .edit-mode.button {
           width: 50px;

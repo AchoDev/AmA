@@ -9,7 +9,8 @@ body {
   flex-direction: column;
 }
 
-$theme-color: lighten(rgb(255, 163, 93), 0%);
+// $theme-color: lighten(rgb(255, 163, 93), 0%);
+$theme-color: lighten(rgba(255,145,61,255), 3%);
 
 @mixin center_children{
   display: flex;
@@ -37,7 +38,9 @@ $theme-color: lighten(rgb(255, 163, 93), 0%);
   right: 0;
   top: 0;
   height: 100px;
-  width: 160px;
+  width: 140px;
+
+  color: white;
 
   right: 10px;
   top: 10px;
@@ -45,7 +48,7 @@ $theme-color: lighten(rgb(255, 163, 93), 0%);
   z-index: 20 ;
 
   border: None;
-  border-radius: 5px;
+  border-radius: 10px;
   font-size: 30px;
 
   background-color: $theme-color;
@@ -120,8 +123,6 @@ $theme-color: lighten(rgb(255, 163, 93), 0%);
       display: flex;
       flex-wrap: wrap;
       background: None;
-
-
       
     }
 
@@ -149,6 +150,7 @@ $theme-color: lighten(rgb(255, 163, 93), 0%);
     @include center_children();
     font-size: 25px;
     background: $theme-color;
+    color: white;
     
   }
 
@@ -164,9 +166,65 @@ $theme-color: lighten(rgb(255, 163, 93), 0%);
     width: 700px;
     height: 100%;
 
+    display: flex;
+    flex-direction: row;
+
     transform: translateY(150px);
 
     transition: ease-in-out .3s;
+
+    #input-container {
+      height: 100%;
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      input {
+        height: 33%;
+        margin: 5px;
+        border: none;
+        border: 1px solid rgb(143, 143, 143);
+        border-radius: 8px;
+      }
+
+    }
+
+    #input-save-container {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      justify-content: space-around;
+      align-items: center;
+
+      #tag-selector {
+        width: 70%;
+        height: 20%;
+        border-radius: 10px;
+      }
+
+      #save-word-button {
+        width: 200px;
+        height: 80px;
+        font-size: 40px;
+
+        border: none;
+        border-radius: 15px;
+        color: $theme-color;
+        background: white;
+
+        transition: cubic-bezier(0.215, 0.610, 0.355, 1) .2s;
+      }
+
+      #save-word-button:hover {
+        box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+        transform: scale(1.05) translateY(-10px);
+      }
+
+      #save-word-button:active {
+        transform: scale(1.0) translateY(0px);
+      }
+    }
+
   }
 
   #word-create-container {
@@ -180,15 +238,49 @@ $theme-color: lighten(rgb(255, 163, 93), 0%);
 
     #add-button-wrapper {
 
-      width: 15%;
       height: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
+
+      width: 150px;
+
       button {
-        width: 50px;
-        height: 50px;
-        font-size: 15px;
+        width: 70px;
+        height: 70px;
+        font-size: 55px;
+        color: white;
+
+        background-color: $theme-color;
+        border: 1px solid rgb(144, 144, 144);
+        border-radius: 20px;
+
+        
+      }
+
+      #add-button {
+        p {
+          margin: 0;
+          padding: 0;
+          transition: cubic-bezier(0.455, 0.03, 0.515, 0.955) .2s;
+        }
+      }
+
+      #save-page-button {
+        display: None;
+        width: 100px;
+        font-size: 20px;
+        transition: cubic-bezier(0.25, 0.46, 0.45, 0.94) .1s;
+      }
+
+      #save-page-button:hover {
+        transform:scale(1.1);
+        box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+      }
+
+      #save-page-button:active {
+        transform: scale(1.0);
+
       }
     }
 
@@ -226,15 +318,15 @@ $theme-color: lighten(rgb(255, 163, 93), 0%);
 
     display: flex;
     flex-wrap: nowrap;
-    width: 75%;
+    width: 79%;
 
     #char-button {
       background-color: darken(white, 1%);
       width: 40px;
-      height: 35px !important;
+      height: 45px !important;
   
       padding: 0;
-      font-size: 17px;
+      font-size: 20px;
       z-index: 5;
   
       $button_radius: 5px;
@@ -382,6 +474,18 @@ $theme-color: lighten(rgb(255, 163, 93), 0%);
         
         #single-word-container:hover #edit-button img {
           opacity: .3;
+        }
+
+        #selected-tag-indicator {
+          display: None;
+          position: absolute;
+          top: 10%;
+          left: 12%;
+          background: $theme-color;
+          font-size: 20px;
+          padding: 5px;
+          color: white;
+          border-radius: 5px;;
         }
 
         #single-word-container {

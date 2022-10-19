@@ -40,26 +40,36 @@
       
       <div id="word-create-container">
         <div id="new-word-container">
-          <input type="text" placeholder="Spanisch">
-          <input type="text" placeholder="Deutsch">
-          <input type="text" placeholder="Arabisch">
+          <div id="input-container">
+            <input type="text" placeholder="Spanisch">
+            <input type="text" placeholder="Deutsch">
+            <input type="text" placeholder="Arabisch">
+          </div>
 
-          <select name="tag" id="tag-selector">
-            <option value="any">Kategorie auswählen</option>
-            <template id="tag-option-template">
-              <option value="temp"></option>
-            </template>
-            
-          </select>
+          <div id="input-save-container">
+            <select name="tag" id="tag-selector">
+              <option value="any">Kategorie auswählen</option>
+              <template id="tag-option-template">
+                <option value="temp"></option>
+              </template>
+              
+            </select>
+  
+            <button id="save-word-button">Speichern</button>
+          </div>
 
-          <button id="save-word-button">save</button>
         </div>
   
         <div id="add-button-wrapper">
           <button id="add-button">
-            +
+            <p>+</p>
+          </button>
+          <button id="save-page-button">
+            Speichern
           </button>
         </div>
+
+
       </div>
 
     </div>
@@ -68,7 +78,7 @@
 
       <img src="../images/amalogo.png" alt="logo" id="logo">
 
-      <h1 id="page-headline">page name</h1>
+      <h1 id="page-headline">head</h1>
 
       <div id="letter-container">
         <template id="char-button-template">
@@ -91,7 +101,7 @@
         <textarea name="Page" id="page-text-area" cols="30" rows="10"></textarea>
         
         <div id="word-container">
-
+          <div id="selected-tag-indicator"></div>
 
           <div id="lang-name-container">
             <div>Spanisch</div>

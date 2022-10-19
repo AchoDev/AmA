@@ -17,12 +17,16 @@ const right_page_button = get_elem("right-page-button")
 const left_page_button = get_elem("left-page-button")
 
 right_page_button.addEventListener("click", () => {
-    current_page += 1
-    update_page()
+    if (current_page < listed_dict.length - 1) {
+        current_page += 1
+        update_page()
+    }
 })
 left_page_button.addEventListener("click", () => {
-    current_page -= 1
-    update_page()
+    if(current_page > 0) {
+        current_page -= 1
+        update_page()
+    }
 })
 
 const set_dict_list = (dc) => {
