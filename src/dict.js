@@ -1,10 +1,10 @@
 const fs = require("fs");
+const path = require("path")
 
-
-const path = "dictionary.json"
+const directory = path.resolve(__dirname, "../dictionary.json")
 
 const rawData = () => {
-    return fs.readFileSync(path, 'utf-8', (err, data) => {
+    return fs.readFileSync(directory, 'utf-8', (err, data) => {
         if(err) {
             alert("an error occured\n\n" + err)
             return null;
@@ -21,11 +21,9 @@ let dictionary
 const get_dictionary = () => dictionary
 
 function update_dict() {
-    try {
-        dictionary = JSON.parse(rawData())
-    } catch(err) {
-
-    }
+    
+    dictionary = JSON.parse(rawData())
+    
 
 
     if (selected_letter != "any") {
@@ -74,7 +72,7 @@ function append_to_dict(word) {
 }
 
 function write() {
-    fs.writeFile("dictionary.json", JSON.stringify(dictionary, null, 4), (err) => {
+    fs.writeFile(path.resolve(__dirname, "../dictionary.json"), JSON.stringify(dictionary, null, 4), (err) => {
         if (err) {
             alert("error\n\n" + err)
         }

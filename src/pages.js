@@ -10,10 +10,12 @@ const save_changes_button = get_elem("save-page-button")
 
 const page_buttons = document.getElementsByClassName("page-button")
 
+path = require("path")
+
 let selected_page
 
 const rawPageData = () => {
-    return fs.readFileSync('pages.json', 'utf-8', (err, data) => {
+    return fs.readFileSync(path.resolve(__dirname, '../pages.json'), 'utf-8', (err, data) => {
         if(err) {
             alert("an error occured\n\n" + err)
             return null;
@@ -23,7 +25,7 @@ const rawPageData = () => {
 }
 
 function writePages(obj) {
-    fs.writeFile("pages.json", JSON.stringify(obj, null, 4), (err) => {
+    fs.writeFile(path.resolve(__dirname, "../pages.json"), JSON.stringify(obj, null, 4), (err) => {
         if (err) {
             alert("error\n\n" + err)
         }

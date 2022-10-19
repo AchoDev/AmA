@@ -1,5 +1,6 @@
 
 
+
 const load_page = require("./pages")
 const update = require("./update")
 const alphabet = ["All", "A","B","C", "Ch","D","E","F","G","H","I","J","K","L","LL","M","N","Ñ","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
@@ -20,10 +21,12 @@ tag_option_template = get_elem("tag-option-template")
 
 fs = require("fs");
 
-const path = "tags.json"
+path = require("path")
+
+const directory = path.resolve(__dirname, "../tags.json")
 
 const tagRawData = () => {
-    return fs.readFileSync(path, 'utf-8', (err, data) => {
+    return fs.readFileSync(directory, 'utf-8', (err, data) => {
         if(err) {
             alert("an error occured\n\n" + err)
             return null;
