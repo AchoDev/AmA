@@ -1,6 +1,6 @@
 
 
-const { match } = require("assert");
+const load_page = require("./pages")
 const update = require("./update")
 const alphabet = ["A","B","C", "Ch","D","E","F","G","H","I","J","K","L","LL","M","N","Ñ","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 
@@ -157,7 +157,7 @@ for(let elem of tag_buttons) {
 
  for(let btn of page_buttons) {
     btn.addEventListener("click", () => {
-        update.update()
+        load_page.load_page()
     })
  }
 

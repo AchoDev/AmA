@@ -135,6 +135,9 @@ body {
     left: 5px;
     top: 5px;
     z-index: 15; }
+  #tag-container #page-headline {
+    text-align: center;
+    display: none; }
   #tag-container #letter-container {
     display: flex;
     flex-wrap: nowrap;
@@ -206,6 +209,19 @@ body {
     flex-direction: column;
     width: 80vw;
     align-items: center; }
+    #language-container #dictionary #page-text-area {
+      display: none;
+      border: none;
+      width: 90%;
+      height: 100%;
+      font-family: 'Arimo', sans-serif;
+      font-size: 20px;
+      margin-top: 20px;
+      background: #fcfcfc; }
+    #language-container #dictionary #page-text-area:focus {
+      outline: 0;
+      outline-color: transparent;
+      outline-style: none; }
     #language-container #dictionary #lang-name-container {
       width: 70%;
       display: flex;

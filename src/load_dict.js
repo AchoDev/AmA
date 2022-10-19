@@ -53,6 +53,7 @@ const set_dict_list = (dc) => {
 
 
 function update_page() {
+
     listed_dict = set_dict_list(dict.get_dictionary())
 
     page_counter.textContent = `Seite ${current_page + 1}/${listed_dict.length}`

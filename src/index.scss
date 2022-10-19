@@ -121,6 +121,7 @@ $theme-color: lighten(rgb(255, 163, 93), 0%);
       flex-wrap: wrap;
       background: None;
 
+
       
     }
 
@@ -214,6 +215,11 @@ $theme-color: lighten(rgb(255, 163, 93), 0%);
     top: 5px;
 
     z-index: 15;
+  }
+
+  #page-headline {
+    text-align: center;
+    display: none;
   }
 
   #letter-container {
@@ -333,6 +339,23 @@ $theme-color: lighten(rgb(255, 163, 93), 0%);
     flex-direction: column;
     width: 80vw;
     align-items: center;
+
+    #page-text-area {
+      display: none;
+      border: none;
+      width: 90%;
+      height: 100%;
+      font-family: 'Arimo', sans-serif;
+      font-size: 20px;
+      margin-top: 20px;
+      background: darken(white, 1%)
+    }
+
+    #page-text-area:focus {
+      outline: 0;
+      outline-color: transparent;
+      outline-style: none;
+    }
 
     #lang-name-container {
       width: $dict_width;
