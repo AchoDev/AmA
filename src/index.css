@@ -14,6 +14,7 @@ body {
   width: 160px;
   right: 10px;
   top: 10px;
+  z-index: 20;
   border: None;
   border-radius: 5px;
   font-size: 30px;
@@ -22,6 +23,9 @@ body {
 
 #tag-selector-button:hover {
   transform: scale(1.1); }
+
+#tag-selector-button:active {
+  transform: scale(1); }
 
 #tag-selector-background {
   width: 100vw;

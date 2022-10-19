@@ -42,6 +42,8 @@ $theme-color: lighten(rgb(255, 145, 61), 0%);
   right: 10px;
   top: 10px;
 
+  z-index: 20 ;
+
   border: None;
   border-radius: 5px;
   font-size: 30px;
@@ -54,6 +56,10 @@ $theme-color: lighten(rgb(255, 145, 61), 0%);
 #tag-selector-button:hover {
   transform: scale(1.1);
 }
+#tag-selector-button:active {
+  transform: scale(1.0);
+}
+
 
 #tag-selector-background {
   width: 100vw;
@@ -85,7 +91,7 @@ $theme-color: lighten(rgb(255, 145, 61), 0%);
     border-radius: 10px;
 
     overflow: scroll;
-    
+
 
     button {
       width: 190px;

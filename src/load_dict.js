@@ -57,7 +57,7 @@ function update_page() {
 
     page_counter.textContent = `Seite ${current_page + 1}/${listed_dict.length}`
     clone_container.replaceChildren()
-    listed_dict[current_page].forEach(word => {
+    listed_dict[current_page].forEach((word, index, arr) => {
 
         const clone = word_container_template.content.cloneNode(true)
     
@@ -70,7 +70,9 @@ function update_page() {
         
         const edit_mode_items = clone.querySelectorAll(".edit-mode")
 
-        clone.getElementById("edit-button").addEventListener("click", () => {
+        edit_button = clone.getElementById("edit-button")
+
+        edit_button.addEventListener("click", () => {
             for(element of edit_mode_items) {
                 element.style.display = "inherit"
             }
@@ -82,7 +84,6 @@ function update_page() {
             editTr[1].value = translation[1].innerText
 
             single_word.style.display = "None"
-            
 
             translation[0].parentNode.style.display = "None"
         })
@@ -93,6 +94,7 @@ function update_page() {
                 element.style.display = "None"
             }
             translation[0].parentNode.style.display = "inherit"
+            edit_button.style.display = "inherit"
         }
 
         clone.getElementById("revert-changes-button").addEventListener("click", () => {
