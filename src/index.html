@@ -13,72 +13,12 @@
 
     <div id="tag-selector-background">
       <div id="tag-selector-container">
-        <h1>kategorie auswählen</h1>
-        <button class="tag-button" value="any">alle</button>
-        <button class="tag-button" value="verb">verben</button>
-        <button class="tag-button" value="adj">adjektive</button>
-        <button class="tag-button" value="noun">nomen</button>
-        <button class="tag-button" value="mix">Gemischt</button>
-        <button class="tag-button" value="any">alle</button>
-        <button class="tag-button" value="verb">verben</button>
-        <button class="tag-button" value="adj">adjektive</button>
-        <button class="tag-button" value="noun">nomen</button>
-        <button class="tag-button" value="mix">Gemischt</button>
-        <button class="tag-button" value="any">alle</button>
-        <button class="tag-button" value="verb">verben</button>
-        <button class="tag-button" value="adj">adjektive</button>
-        <button class="tag-button" value="noun">nomen</button>
-        <button class="tag-button" value="mix">Gemischt</button>
-        <button class="tag-button" value="any">alle</button>
-        <button class="tag-button" value="verb">verben</button>
-        <button class="tag-button" value="adj">adjektive</button>
-        <button class="tag-button" value="noun">nomen</button>
-        <button class="tag-button" value="mix">Gemischt</button>
-        <button class="tag-button" value="any">alle</button>
-        <button class="tag-button" value="verb">verben</button>
-        <button class="tag-button" value="adj">adjektive</button>
-        <button class="tag-button" value="noun">nomen</button>
-        <button class="tag-button" value="mix">Gemischt</button>
-        <button class="tag-button" value="any">alle</button>
-        <button class="tag-button" value="verb">verben</button>
-        <button class="tag-button" value="adj">adjektive</button>
-        <button class="tag-button" value="noun">nomen</button>
-        <button class="tag-button" value="mix">Gemischt</button>
-        <button class="tag-button" value="any">alle</button>
-        <button class="tag-button" value="verb">verben</button>
-        <button class="tag-button" value="adj">adjektive</button>
-        <button class="tag-button" value="noun">nomen</button>
-        <button class="tag-button" value="mix">Gemischt</button>
-        <button class="tag-button" value="any">alle</button>
-        <button class="tag-button" value="verb">verben</button>
-        <button class="tag-button" value="adj">adjektive</button>
-        <button class="tag-button" value="noun">nomen</button>
-        <button class="tag-button" value="mix">Gemischt</button>
-        <button class="tag-button" value="any">alle</button>
-        <button class="tag-button" value="verb">verben</button>
-        <button class="tag-button" value="adj">adjektive</button>
-        <button class="tag-button" value="noun">nomen</button>
-        <button class="tag-button" value="mix">Gemischt</button>
-        <button class="tag-button" value="any">alle</button>
-        <button class="tag-button" value="verb">verben</button>
-        <button class="tag-button" value="adj">adjektive</button>
-        <button class="tag-button" value="noun">nomen</button>
-        <button class="tag-button" value="mix">Gemischt</button>
-        <button class="tag-button" value="any">alle</button>
-        <button class="tag-button" value="verb">verben</button>
-        <button class="tag-button" value="adj">adjektive</button>
-        <button class="tag-button" value="noun">nomen</button>
-        <button class="tag-button" value="mix">Gemischt</button>
-        <button class="tag-button" value="any">alle</button>
-        <button class="tag-button" value="verb">verben</button>
-        <button class="tag-button" value="adj">adjektive</button>
-        <button class="tag-button" value="noun">nomen</button>
-        <button class="tag-button" value="mix">Gemischt</button>
-        <button class="tag-button" value="any">alle</button>
-        <button class="tag-button" value="verb">verben</button>
-        <button class="tag-button" value="adj">adjektive</button>
-        <button class="tag-button" value="noun">nomen</button>
-        <button class="tag-button" value="mix">Gemischt</button>
+        <h1>Kategorien</h1>
+        <template id="tag-button-template">
+          <button class="tag-button" value="">lorem</button>
+        </template> 
+        <h1>Seiten</h1>
+        
       </div>
     </div>
 
@@ -88,7 +28,7 @@
     <div id="bottom-container">
 
       <div id="page-index">
-        Page 1/999
+        Seite 1/1
       </div>
       
       <div id="word-create-container">
@@ -98,11 +38,11 @@
           <input type="text" placeholder="Arabisch">
 
           <select name="tag" id="tag-selector">
-            <option value="temp">Kategorie auswählen</option>
-            <option value="noun">Nomen</option>
-            <option value="verb">Verb</option>
-            <option value="adj">Adjektiv</option>
-            <option value="mix">Gemischt</option>
+            <option value="any">Kategorie auswählen</option>
+            <template id="tag-option-template">
+              <option value="temp"></option>
+            </template>
+            
           </select>
 
           <button id="save-word-button">save</button>
@@ -171,8 +111,13 @@
                 <input type="text">
               </div>
 
-              <button id="revert-changes-button" class="edit-mode">don't save</button>
-              <button id="save-changes-button" class="edit-mode">save</button>
+              <button id="delete-button" class="edit-mode button">
+                <img src="../images/delete-button.png" alt="Löschen">
+              </button>
+              <button id="revert-changes-button" class="edit-mode button">
+                <img src="../images/revert-button.png" alt="Revert changes">
+              </button>
+              <button id="save-changes-button" class="edit-mode button">save</button>
 
               <button id="edit-button">
                 <img src="../images/edit-button.png" alt="edit">

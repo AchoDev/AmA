@@ -70,7 +70,7 @@ function update_page() {
         
         const edit_mode_items = clone.querySelectorAll(".edit-mode")
 
-        edit_button = clone.getElementById("edit-button")
+        const edit_button = clone.getElementById("edit-button")
 
         edit_button.addEventListener("click", () => {
             for(element of edit_mode_items) {
@@ -79,11 +79,12 @@ function update_page() {
 
             edit_mode_items[0].querySelector("input").value = single_word.innerText
 
-            editTr = edit_mode_items[1].querySelectorAll("input")
+            const editTr = edit_mode_items[1].querySelectorAll("input")
             editTr[0].value = translation[0].innerText
             editTr[1].value = translation[1].innerText
 
             single_word.style.display = "None"
+            edit_button.style.display = "None"
 
             translation[0].parentNode.style.display = "None"
         })
@@ -104,15 +105,20 @@ function update_page() {
         clone.getElementById("save-changes-button").addEventListener("click", () => {
             editTr = edit_mode_items[1].querySelectorAll("input")
             dict.edit_dict(
-                word, {"sp": edit_mode_items[0].querySelector("input").value, "de": editTr[0].value, "ar": editTr[1].value}
+                word, {"sp": edit_mode_items[0].querySelector("input").value, "de": editTr[0].value, "ar": editTr[1].value, "tag": "word.tag"}
             )
 
-            word = {"sp": edit_mode_items[0].querySelector("input").value, "de": editTr[0].value, "ar": editTr[1].value}
+            word = {"sp": edit_mode_items[0].querySelector("input").value, "de": editTr[0].value, "ar": editTr[1].value, "tag": word.tag}
 
             single_word.textContent = edit_mode_items[0].querySelector("input").value
             translation[0].textContent = editTr[0].value
             translation[1].textContent = editTr[1].value
             leave_edit_mode()
+        })
+
+        clone.getElementById("delete-button").addEventListener("click", () => {
+            dict.remove_from_dict(word)
+            single_word.parentNode.style.display = "None"
         })
 
         clone_container.appendChild(clone)

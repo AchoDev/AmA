@@ -1,5 +1,6 @@
 const fs = require("fs");
 
+
 const path = "dictionary.json"
 
 const rawData = () => {
@@ -78,21 +79,29 @@ function write() {
 
 const compare = (obj1, obj2) => JSON.stringify(obj1) == JSON.stringify(obj2)
 
-function edit_dict(word, new_word) {
+const search_dict = (word, fnc) => {
     dictionary = JSON.parse(rawData())
     dictionary.forEach((element, index, arr) => {
-        console.log(element)
         if(compare(element, word)) {
-            arr[index] = new_word
-            console.warn("FOUND ONE")
+            fnc(arr, index)
         }
     });
+}
 
-    console.log(word)
+function edit_dict(word, new_word) {
+    search_dict(word, (arr, index) => {
+        arr[index] = new_word
+    })
+    write()
+}
 
+function remove_from_dict(word) {
+    search_dict(word, (arr, index) => {
+        arr.splice(index, 1)
+    })
     write()
 }
 
 update_dict()
 
-module.exports = {append_to_dict, update_dict, get_dictionary, change_selected_letter, change_selected_tag, edit_dict}
+module.exports = {append_to_dict, update_dict, get_dictionary, change_selected_letter, change_selected_tag, edit_dict, remove_from_dict}

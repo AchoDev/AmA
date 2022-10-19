@@ -18,7 +18,8 @@ body {
   border: None;
   border-radius: 5px;
   font-size: 30px;
-  background-color: #ff913d;
+  background-color: #ffa35d;
+  cursor: pointer;
   transition: ease-in-out .2s; }
 
 #tag-selector-button:hover {
@@ -45,9 +46,10 @@ body {
     width: 70%;
     height: 90%;
     margin-top: 60px;
-    background-color: #ff913d;
+    background-color: #ffa35d;
     border-radius: 10px;
-    overflow: scroll; }
+    overflow: scroll;
+    z-index: 41; }
     #tag-selector-background #tag-selector-container button {
       width: 190px;
       height: 120px;
@@ -70,9 +72,9 @@ body {
     justify-content: center;
     align-items: center;
     font-size: 25px;
-    background: #ff913d; }
+    background: #ffa35d; }
   #bottom-container #new-word-container {
-    background: #ff913d;
+    background: #ffa35d;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
@@ -199,10 +201,30 @@ body {
           margin: 5px; }
         #language-container #dictionary #word-container #single-word-container .edit-mode {
           display: None;
-          background-color: #ff913d;
+          background-color: #ffa35d;
           height: 100%; }
+        #language-container #dictionary #word-container #single-word-container .edit-mode.button {
+          width: 50px;
+          height: 50px;
+          padding: 10px;
+          margin: 3px;
+          border: None;
+          border-radius: 15px; }
+          #language-container #dictionary #word-container #single-word-container .edit-mode.button img {
+            width: 100%;
+            height: 100%; }
         #language-container #dictionary #word-container #single-word-container #edit-translation input {
-          width: 250px; }
+          width: 220px; }
+        #language-container #dictionary #word-container #single-word-container #delete-button {
+          width: 50px;
+          height: 50px;
+          padding: 10px;
+          margin: 10px;
+          border: None;
+          border-radius: 15px; }
+          #language-container #dictionary #word-container #single-word-container #delete-button img {
+            width: 100%;
+            height: 100%; }
         #language-container #dictionary #word-container #single-word-container #word1 {
           background: #fcfcfc;
           margin: 5px;
