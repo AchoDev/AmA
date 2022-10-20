@@ -1,4 +1,4 @@
-!(./amalogo.png)
+![Logo](./amalogo.png)
 
 # AmA
 Digital dictionary
