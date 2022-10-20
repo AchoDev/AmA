@@ -92,3 +92,6 @@ sass
 out/
 release-builds
 *.dmg
+
+out/
+dist

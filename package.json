@@ -2,8 +2,9 @@
   "name": "AchoDev",
   "productName": "AmA",
   "version": "1.0.0",
-  "description": "",
+  "description": "Very important description",
   "main": "src/index.js",
+  "pack": "npx electron-builder --dir",
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",
@@ -11,7 +12,7 @@
     "publish": "electron-forge publish",
     "lint": "echo \"No linting configured\"",
     "app:dir": "electron-builder --dir",
-    "app:dist": "electron-builder"
+    "app:dist": "npx electron-builder"
   },
   "keywords": [],
   "author": {
@@ -20,11 +21,13 @@
   },
   "license": "MIT",
   "build": {
-    "appID": "com.AchoDev.AmA",
+    
+    "productName": "AmA",
     "mac": {
       "category": "com.AmA.utility.type",
       "icon": "images/logo.icns"
-    }
+    },
+    "copyright": "Copyright © 2022 AchoDev"
   },
   "config": {
     "forge": {
