@@ -159,10 +159,16 @@ body {
         background-color: #ff9a4c;
         border: 1px solid #909090;
         border-radius: 20px; }
-      #bottom-container #word-create-container #add-button-wrapper #add-button p {
-        margin: 0;
-        padding: 0;
-        transition: cubic-bezier(0.455, 0.03, 0.515, 0.955) 0.2s; }
+      #bottom-container #word-create-container #add-button-wrapper #add-button {
+        transition: cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s; }
+        #bottom-container #word-create-container #add-button-wrapper #add-button p {
+          margin: 0;
+          padding: 0;
+          transition: cubic-bezier(0.455, 0.03, 0.515, 0.955) 0.2s; }
+      #bottom-container #word-create-container #add-button-wrapper #add-button:hover {
+        transform: scale(1.2); }
+      #bottom-container #word-create-container #add-button-wrapper #add-button:active {
+        transform: scale(1); }
       #bottom-container #word-create-container #add-button-wrapper #save-page-button {
         display: None;
         width: 100px;

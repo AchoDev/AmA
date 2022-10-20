@@ -1,6 +1,7 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, Menu } = require('electron');
 const path = require('path');
 const remoteMain = require('@electron/remote/main');
+
 remoteMain.initialize();
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
@@ -26,6 +27,10 @@ const createWindow = () => {
 
   mainWindow.setMenuBarVisibility(false)
   mainWindow.setMenu(null)
+  
+  mainWindow.on('closed', () => {
+    win = null
+  })
 
   // and load the index.html of the app.
   mainWindow.loadFile(path.join(__dirname, 'index.html'));
@@ -33,6 +38,7 @@ const createWindow = () => {
   // Open the DevTools.
   mainWindow.webContents.openDevTools();
   remoteMain.enable(mainWindow.webContents)
+  setMainMenu(mainWindow)
 };
 
 
@@ -40,6 +46,39 @@ const createWindow = () => {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.on('ready', createWindow);
+
+function setMainMenu(win) {
+  const template = [
+    {
+      label: 'Filter',
+      submenu: [
+        {
+          label: 'Hello',
+          accelerator: 'Shift+CmdOrCtrl+H',
+          click() {
+              console.log("dont")
+          }
+        },
+        {
+          label: 'Quit',
+          accelerator: 'Cmd+Q',
+          click() {
+            app.quit()
+          }
+        },
+        {
+          label: "Reload",
+          accelerator: "Cmd+R",
+          click() {
+            win.reload()
+          }
+        }
+      ]
+    }
+  ];
+  Menu.setApplicationMenu(Menu.buildFromTemplate(template));
+}
+
 
 // Quit when all windows are closed, except on macOS. There, it's common
 // for applications and their menu bar to stay active until the user quits

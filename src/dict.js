@@ -21,8 +21,9 @@ let dictionary
 const get_dictionary = () => dictionary
 
 function update_dict() {
-    
-    dictionary = JSON.parse(rawData())
+    try {
+        dictionary = JSON.parse(rawData())
+    } catch(err) {}
     
 
 

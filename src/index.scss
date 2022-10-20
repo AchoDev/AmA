@@ -254,8 +254,6 @@ $theme-color: lighten(rgba(255,145,61,255), 3%);
         background-color: $theme-color;
         border: 1px solid rgb(144, 144, 144);
         border-radius: 20px;
-
-        
       }
 
       #add-button {
@@ -264,6 +262,16 @@ $theme-color: lighten(rgba(255,145,61,255), 3%);
           padding: 0;
           transition: cubic-bezier(0.455, 0.03, 0.515, 0.955) .2s;
         }
+
+        transition: cubic-bezier(0.25, 0.46, 0.45, 0.94) .1s;
+      }
+
+      #add-button:hover {
+        transform: scale(1.2);
+      }
+
+      #add-button:active {
+        transform: scale(1.0)
       }
 
       #save-page-button {
