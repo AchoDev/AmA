@@ -2,6 +2,9 @@ const { app, BrowserWindow, Menu } = require('electron');
 const path = require('path');
 const remoteMain = require('@electron/remote/main');
 
+const fs = require('fs');
+
+
 remoteMain.initialize();
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
@@ -21,7 +24,7 @@ const createWindow = () => {
       contextIsolation: false,
       enableRemoteModule: true,
       devTools: false,
-      preload: path.join(__dirname, 'preload.js'),
+      preload: path.join(__dirname, 'preload.js')
     },
   });
 
@@ -31,13 +34,17 @@ const createWindow = () => {
   mainWindow.on('closed', () => {
     win = null
   })
-
+  
   // and load the index.html of the app.
   mainWindow.loadFile(path.join(__dirname, 'index.html'));
-
+  
   // Open the DevTools.
-  mainWindow.webContents.openDevTools();
+
   remoteMain.enable(mainWindow.webContents)
+
+
+  mainWindow.webContents.closeDevTools()
+  
   setMainMenu(mainWindow)
 };
 
@@ -74,7 +81,19 @@ function setMainMenu(win) {
           }
         }
       ]
-    }
+      
+    }, 
+    {
+      label: "Edit",
+      submenu: [
+          { label: "Undo", accelerator: "CmdOrCtrl+Z", selector: "undo:" },
+          { label: "Redo", accelerator: "Shift+CmdOrCtrl+Z", selector: "redo:" },
+          { type: "separator" },
+          { label: "Cut", accelerator: "CmdOrCtrl+X", selector: "cut:" },
+          { label: "Copy", accelerator: "CmdOrCtrl+C", selector: "copy:" },
+          { label: "Paste", accelerator: "CmdOrCtrl+V", selector: "paste:" },
+          { label: "Select All", accelerator: "CmdOrCtrl+A", selector: "selectAll:" }
+      ]}
   ];
   Menu.setApplicationMenu(Menu.buildFromTemplate(template));
 }

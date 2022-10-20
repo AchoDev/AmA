@@ -1,5 +1,5 @@
 {
-  "name": "AmA",
+  "name": "AchoDev",
   "productName": "AmA",
   "version": "1.0.0",
   "description": "",
@@ -9,7 +9,9 @@
     "package": "electron-forge package",
     "make": "electron-forge make",
     "publish": "electron-forge publish",
-    "lint": "echo \"No linting configured\""
+    "lint": "echo \"No linting configured\"",
+    "app:dir": "electron-builder --dir",
+    "app:dist": "electron-builder"
   },
   "keywords": [],
   "author": {
@@ -17,6 +19,13 @@
     "email": "ahmedhdasi89@gmail.com"
   },
   "license": "MIT",
+  "build": {
+    "appID": "com.AchoDev.AmA",
+    "mac": {
+      "category": "com.AmA.utility.type",
+      "icon": "images/logo.icns"
+    }
+  },
   "config": {
     "forge": {
       "packagerConfig": {},
@@ -46,7 +55,8 @@
   },
   "dependencies": {
     "@electron/remote": "^2.0.8",
-    "electron-squirrel-startup": "^1.0.0"
+    "electron-squirrel-startup": "^1.0.0",
+    "inquirer-select-directory": "^1.2.0"
   },
   "devDependencies": {
     "@electron-forge/cli": "^6.0.0-beta.67",

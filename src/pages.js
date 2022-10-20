@@ -77,6 +77,33 @@ function deload_page() {
     headline.style.display = "None"
 }
 
+function load_directory() {
+    textarea.value = ""
+
+    for(button of page_buttons) {
+        button.style.display = "None"
+    }
+
+    word_clone_container.replaceChildren()
+    lang_name_container.style.display = "None"
+    add_button.style.display = "None"
+    textarea.style.display = "initial"
+    save_changes_button.style.display = "initial"
+
+    letter_container.style.display = "None"
+    headline.style.display = "block"
+    headline.innerText = "directory.json"
+
+
+    const pageObj = rawPageData()
+
+    console.log(pageObj)
+
+    textarea.value = pageObj
+
+    selected_page = "directory"
+}
+
 function load_page(page) {
 
     textarea.value = ""
@@ -108,4 +135,4 @@ function load_page(page) {
     selected_page = page
 }
 
-module.exports = {load_page, deload_page}
+module.exports = {load_page, deload_page, load_directory}

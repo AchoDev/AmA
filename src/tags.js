@@ -84,6 +84,18 @@ for(let page of pages) {
     page_button_template.parentNode.appendChild(clone)
 }
 
+const dirPage = page_button_template.content.cloneNode(true)
+const dirBtn = dirPage.querySelector("button")
+
+dirBtn.innerText = "Save"
+dirBtn.value = "Sv"
+
+page_button_template.parentNode.appendChild(dirPage)
+
+dirBtn.addEventListener("click", () => {
+    load_page.load_directory()
+})
+
 alphabet.forEach(letter => {
     const clone = letter_button.content.cloneNode(true)
     const button = clone.querySelector("button")
@@ -135,11 +147,15 @@ alphabet.forEach(letter => {
             element.style.borderBottom = "2px solid black"
             element.style.zIndex = "5";
             element.style.transform = "translateY(5px)"
+            element.style.background = "#fcfcfc";
+            element.style.color = "black"
         }
 
         button.style.zIndex = "15";
         button.style.transform = "translateY(1px)"
         button.style.borderBottom = "None"
+        button.style.background = "green";
+        button.style.color = "white"
     })
     tag_container.appendChild(clone)
 });
@@ -184,11 +200,17 @@ for(let elem of tag_buttons) {
         }
         
     })
+
+
 }
 
  for(let btn of page_buttons) {
-    btn.addEventListener("click", () => {
-        load_page.load_page(btn.value)
-    })
+     if(btn.value != "Sv") {
+        btn.addEventListener("click", () => {
+            load_page.load_page(btn.value)
+        })
+    } else {
+        console.log("AAAAAAA")
+    }
  }
 
