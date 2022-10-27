@@ -11,14 +11,14 @@ body {
   right: 0;
   top: 0;
   height: 100px;
-  width: 140px;
+  width: 130px;
   color: white;
   right: 10px;
   top: 10px;
   z-index: 20;
   border: None;
   border-radius: 10px;
-  font-size: 30px;
+  font-size: 28px;
   background-color: #ff9a4c;
   cursor: pointer;
   transition: cubic-bezier(0.165, 0.84, 0.44, 1) 0.2s; }
@@ -49,25 +49,103 @@ body {
     margin-top: 60px;
     background-color: #ff9a4c;
     border-radius: 10px;
-    overflow: scroll;
+    overflow-x: visible;
+    overflow-y: scroll;
     z-index: 41; }
-    #tag-selector-background #tag-selector-container h1 {
-      position: relative;
-      display: block; }
+    #tag-selector-background #tag-selector-container #tag-selector-top-section {
+      display: flex;
+      justify-content: space-between; }
+      #tag-selector-background #tag-selector-container #tag-selector-top-section h1 {
+        position: relative;
+        display: block; }
+      #tag-selector-background #tag-selector-container #tag-selector-top-section #upper-right-container {
+        width: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center; }
+        #tag-selector-background #tag-selector-container #tag-selector-top-section #upper-right-container button {
+          background: white;
+          width: 90px;
+          height: 80%;
+          margin: 0 10px 0 10px;
+          border: None;
+          border: 2px solid black;
+          border-radius: 5px; }
     #tag-selector-background #tag-selector-container .button {
       width: 180px;
       height: 110px;
       font-size: 40px;
       border-radius: 5px;
       margin: 5px;
+      background: white;
       transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.2s; }
-    #tag-selector-background #tag-selector-container .button:hover {
-      transform: scale(1.1); }
     #tag-selector-background #tag-selector-container #tag-container {
       height: auto;
       display: flex;
       flex-wrap: wrap;
       background: None; }
+      #tag-selector-background #tag-selector-container #tag-container .tag-button-wrapper {
+        position: relative; }
+        #tag-selector-background #tag-selector-container #tag-container .tag-button-wrapper #edit-input-container {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-wrap: wrap;
+          transform: translate(-50%, -50%) rotateY(180deg);
+          width: 80%;
+          height: 80%;
+          opacity: 0;
+          visibility: hidden;
+          transition: cubic-bezier(0.23, 1, 0.32, 1) 0.1s;
+          transition-delay: .15s; }
+          #tag-selector-background #tag-selector-container #tag-container .tag-button-wrapper #edit-input-container input {
+            width: 100%;
+            height: 40%; }
+          #tag-selector-background #tag-selector-container #tag-container .tag-button-wrapper #edit-input-container button {
+            position: relative;
+            width: 25%;
+            height: 0;
+            padding-bottom: 20%;
+            margin: 0 12.5% 0 12.5%; }
+          #tag-selector-background #tag-selector-container #tag-container .tag-button-wrapper #edit-input-container #edit-input-cancel {
+            margin-right: 5%; }
+          #tag-selector-background #tag-selector-container #tag-container .tag-button-wrapper #edit-input-container #edit-input-save {
+            margin-left: 5%; }
+        #tag-selector-background #tag-selector-container #tag-container .tag-button-wrapper .edit-tag-mode-button {
+          position: absolute;
+          width: 30px;
+          height: 30px;
+          top: 0;
+          z-index: 16;
+          background: white;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          display: None;
+          transition: cubic-bezier(0.23, 1, 0.32, 1) 0.2s;
+          border: None;
+          border: 1px solid black;
+          border-radius: 2px;
+          opacity: 0.7; }
+          #tag-selector-background #tag-selector-container #tag-container .tag-button-wrapper .edit-tag-mode-button img {
+            width: 25px;
+            height: 25px; }
+        #tag-selector-background #tag-selector-container #tag-container .tag-button-wrapper .edit-tag-mode-button:hover {
+          transform: scale(1.45);
+          opacity: 1; }
+        #tag-selector-background #tag-selector-container #tag-container .tag-button-wrapper #delete-tag:hover {
+          background: #ff3838;
+          border-color: white; }
+          #tag-selector-background #tag-selector-container #tag-container .tag-button-wrapper #delete-tag:hover img {
+            filter: brightness(0) invert(1); }
+        #tag-selector-background #tag-selector-container #tag-container .tag-button-wrapper #delete-tag {
+          right: 0px; }
+        #tag-selector-background #tag-selector-container #tag-container .tag-button-wrapper #edit-tag {
+          left: 0px; }
 
 #bottom-container {
   position: fixed;
@@ -193,7 +271,7 @@ body {
   flex-shrink: 0;
   flex-wrap: nowrap; }
   #tag-container #logo {
-    width: 150px;
+    width: 100px;
     height: auto;
     position: fixed;
     left: 5px;
@@ -205,11 +283,12 @@ body {
   #tag-container #letter-container {
     display: flex;
     flex-wrap: nowrap;
-    width: 79%; }
+    width: 80%;
+    align-items: flex-end; }
     #tag-container #letter-container #char-button {
       background-color: #fcfcfc;
-      width: 40px;
-      height: 45px !important;
+      width: 45px;
+      height: 45px;
       padding: 0;
       font-size: 20px;
       z-index: 5;

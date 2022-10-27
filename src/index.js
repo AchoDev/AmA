@@ -23,7 +23,7 @@ const createWindow = () => {
       nodeIntegration: true,
       contextIsolation: false,
       enableRemoteModule: true,
-      devTools: false,
+      devTools: true,
       preload: path.join(__dirname, 'preload.js')
     },
   });
@@ -43,7 +43,7 @@ const createWindow = () => {
   remoteMain.enable(mainWindow.webContents)
 
 
-  mainWindow.webContents.closeDevTools()
+  mainWindow.webContents.openDevTools()
   
   setMainMenu(mainWindow)
 };
@@ -78,6 +78,13 @@ function setMainMenu(win) {
           accelerator: "Cmd+R",
           click() {
             win.reload()
+          }
+        },
+        {
+          label: "Open dev tools",
+          accelerator: "f12",
+          click() {
+            win.openDevTools()
           }
         }
       ]

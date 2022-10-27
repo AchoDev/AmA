@@ -56,7 +56,8 @@ for(element of tags) {
     }
 
     const btnClone = tag_button_template.content.cloneNode(true)
-    const btn = btnClone.querySelector("button")
+
+    const btn = btnClone.querySelectorAll("button")[2]
     
     const optClone = tag_option_template.content.cloneNode(true)
     const option = optClone.querySelector("option")
@@ -108,11 +109,16 @@ alphabet.forEach(letter => {
     } else {
         button.textContent = "All"
         isPressed = true
-        button.style.zIndex = "15";
+
+        button.style.zIndex = "14";
         button.style.transform = "translateY(1px)"
         button.style.borderBottom = "None"
+        button.style.background = "blue"
+        button.style.color = "white"
 
-        button.style.color = "orange";
+
+        button.style.width = "95px";
+        button.style.height = "55px";
     }
     
 
@@ -147,15 +153,26 @@ alphabet.forEach(letter => {
             element.style.borderBottom = "2px solid black"
             element.style.zIndex = "5";
             element.style.transform = "translateY(5px)"
-            element.style.background = "#fcfcfc";
-            element.style.color = "black"
+            
+            if (element.innerText != "All") {
+                
+                element.style.background = "#fcfcfc";
+                element.style.color = "black"
+            }
         }
 
-        button.style.zIndex = "15";
+        button.style.zIndex = "14";
         button.style.transform = "translateY(1px)"
         button.style.borderBottom = "None"
-        button.style.background = "green";
+        
+        if (button.innerText == "All") {
+            button.style.background = "blue";
+        } else {
+            button.style.background = "orange"
+        }
+
         button.style.color = "white"
+
     })
     tag_container.appendChild(clone)
 });
@@ -169,7 +186,11 @@ function close_menu() {
     s.transform = "scale(0.7)"
 }
 
-tag_select_menu.addEventListener("click", close_menu)
+tag_select_menu.addEventListener("click", (event) => {
+    if (event.srcElement == tag_select_menu) {
+        close_menu()
+    }
+})
 
 tag_select_button.addEventListener("click", () => {
     s = tag_select_menu.children[0].style

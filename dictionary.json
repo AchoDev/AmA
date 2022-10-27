@@ -1,1 +1,26 @@
-[]
+[
+    {
+        "sp": "hola",
+        "de": "hallo",
+        "ar": "selam",
+        "tag": "any"
+    },
+    {
+        "sp": "haga",
+        "de": "casa",
+        "ar": "",
+        "tag": "Verben"
+    },
+    {
+        "sp": "halli",
+        "de": "hallo",
+        "ar": "",
+        "tag": "Nomen"
+    },
+    {
+        "sp": "wie",
+        "de": "gehts",
+        "ar": "",
+        "tag": "Nomen"
+    }
+]

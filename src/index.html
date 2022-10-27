@@ -13,11 +13,33 @@
 
     <div id="tag-selector-background">
       <div id="tag-selector-container">
-        <h1>Kategorien</h1>
+        <div id="tag-selector-top-section">
+          <h1>Kategorien</h1>
+          <div id="upper-right-container">
+            <button id="edit-tag-button">edit tags</button>
+            <button id="edit-tag-button">new tag</button>
+          </div>
+        </div>
 
         <div id="tag-container">
           <template id="tag-button-template">
-            <button class="tag-button button" value="">lorem</button>
+            <div class="tag-button-wrapper">
+              <button id="delete-tag" class="edit-tag-mode-button">
+                <img src="../images/delete-button.png" alt="Delete">
+              </button>
+              <button id="edit-tag" class="edit-tag-mode-button">
+                <img src="../images/edit-button.png" alt="Edit"> 
+              </button>
+
+              <button class="tag-button button" value="">
+              </button>
+              <div id="edit-input-container">
+                <input id="new-tag-name-input" type="text" placeholder="Neuer Name" maxlength="20">
+                <button id="edit-input-cancel">cancel</button>
+                <button id="edit-input-save">save</button>
+              </div>
+            
+            </div>
           </template> 
         </div>
         <h1>Seiten</h1>
@@ -164,4 +186,6 @@
   <script src="tags.js"></script>
   <script src="create_word.js"></script>
   <script src="load_dict.js"></script>
+  <script src="edit_tags.js"></script>
+
 </html>
