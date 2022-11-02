@@ -11,19 +11,32 @@
   </head>
   <body>
 
+    <div id="pop-up-menu-container">
+      <div id="pop-up-menu">
+        <h1 id="question">lorem ipseum dolor amet</h1>
+        <template id="answer-template">
+          <button id="answer">lorem ipsum</button>
+        </template>
+
+        <div id="template-container"></div>
+        
+      </div>
+    </div>
+
     <div id="tag-selector-background">
       <div id="tag-selector-container">
-        <div id="tag-selector-top-section">
+        <div class="tag-selector-top-section">
           <h1>Kategorien</h1>
-          <div id="upper-right-container">
+          <div class="upper-right-container">
+            <button id="stop-tag-button">stop</button>
             <button id="edit-tag-button">edit tags</button>
-            <button id="edit-tag-button">new tag</button>
+            <button id="add-tag-button">new tag</button>
           </div>
         </div>
 
-        <div id="tag-container">
+        <div id="tag-container" class="button-container">
           <template id="tag-button-template">
-            <div class="tag-button-wrapper">
+            <div class="tag-button-wrapper" data-id="0">
               <button id="delete-tag" class="edit-tag-mode-button">
                 <img src="../images/delete-button.png" alt="Delete">
               </button>
@@ -42,11 +55,19 @@
             </div>
           </template> 
         </div>
-        <h1>Seiten</h1>
-        <div id="page-container">
-          <template id="select-page-button-template">
+
+        <div class="tag-selector-top-section">
+          <h1>Seiten</h1>
+          <!-- <div class="upper-right-container">
+            <button id="stop-tag-button">stop</button>
+            <button id="edit-tag-button">edit tags</button>
+            <button id="add-tag-button">new tag</button>
+          </div> -->
+        </div>
+        <div id="page-container" class="button-container">
+          <!-- <template id="select-page-button-template">
             <button class="select-page-button button" value=""></button>
-          </template>
+          </template> -->
         </div>
       </div>
     </div>
@@ -185,7 +206,7 @@
 
   <script src="tags.js"></script>
   <script src="create_word.js"></script>
-  <script src="load_dict.js"></script>
+  <!-- <script src="load_dict.js"></script> -->
+  <!-- <script src="page_buttons.js"></script> -->
   <script src="edit_tags.js"></script>
-
 </html>

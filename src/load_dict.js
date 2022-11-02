@@ -1,7 +1,8 @@
 dict = require("./dict")
 
+const { get_current_page, append_page} = require("./page_selector")
 
-const fs = require("fs")
+let fs = require("fs")
 
 
 let get_elem = (name) => document.getElementById(name)
@@ -10,21 +11,27 @@ const word_container_template = document.getElementById("word-container-template
 const clone_container = get_elem("word-clone-wrapper")
 const page_counter = get_elem("page-index")
 
-let current_page = 0
 const max_page_length = 40
 
 const right_page_button = get_elem("right-page-button")
 const left_page_button = get_elem("left-page-button")
 
 right_page_button.addEventListener("click", () => {
-    if (current_page < listed_dict.length - 1) {
-        current_page += 1
+    if (get_current_page() < listed_dict.length - 1) {
+        append_page(1)
+        update_page()
+    } else {
+        change_current_page(0)
         update_page()
     }
 })
+
 left_page_button.addEventListener("click", () => {
-    if(current_page > 0) {
-        current_page -= 1
+    if(get_current_page() > 0) {
+        append_page(-1)
+        update_page()
+    } else {
+        change_current_page(listed_dict.length - 1)
         update_page()
     }
 })
@@ -32,8 +39,6 @@ left_page_button.addEventListener("click", () => {
 const set_dict_list = (dc) => {
     let current_item = 0
     let temp_list = []
-
-    let jdjdjd = 0
 
     while(current_item <= dc.length) {
 
@@ -57,11 +62,15 @@ const set_dict_list = (dc) => {
 
 
 function update_page() {
+    
+    const current_page = get_current_page()
 
     listed_dict = set_dict_list(dict.get_dictionary())
-
+    
     page_counter.textContent = `Seite ${current_page + 1}/${listed_dict.length}`
+    
     clone_container.replaceChildren()
+
     listed_dict[current_page].forEach((word, index, arr) => {
 
         const clone = word_container_template.content.cloneNode(true)

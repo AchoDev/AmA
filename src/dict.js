@@ -1,7 +1,18 @@
-const fs = require("fs");
+let fs = require("fs");
 const path = require("path")
 
 const directory = path.resolve(__dirname, "../dictionary.json")
+
+const ignored_letters = ["¡", "¿", "!", "?"]
+
+const search_list = (value) => {
+    for(let letter in ignored_letters) {
+        if(letter == value) {
+            return true
+        }
+    }
+    return false
+}
 
 const rawData = () => {
     return fs.readFileSync(directory, 'utf-8', (err, data) => {
@@ -25,11 +36,13 @@ function update_dict() {
         dictionary = JSON.parse(rawData())
     } catch(err) {}
     
-
-
     if (selected_letter != "any") {
         for(let i = 0; i < dictionary.length; i++){
+
             let dicLetter = dictionary[i].sp.charAt(0).toUpperCase()
+            if(search_list(dicLetter)) {
+                break
+            }
             firstTwo = dictionary[i].sp.substring(0, 2).toUpperCase()
 
             if(firstTwo.toUpperCase() == "CH" || firstTwo.toUpperCase() == "LL") dicLetter = firstTwo
@@ -39,9 +52,6 @@ function update_dict() {
             }
         }
     }
-
-
-    console.log(selected_tag)
 
     if (selected_tag != "any") {
         for(let i = 0; i < dictionary.length; i++){
@@ -88,7 +98,7 @@ const search_dict = (word, fnc) => {
         if(compare(element, word)) {
             fnc(arr, index)
         }
-    });
+    })
 }
 
 function edit_dict(word, new_word) {

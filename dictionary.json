@@ -22,5 +22,47 @@
         "de": "gehts",
         "ar": "",
         "tag": "Nomen"
+    },
+    {
+        "sp": "haga",
+        "de": "casa",
+        "ar": "",
+        "tag": "any"
+    },
+    {
+        "sp": "",
+        "de": "",
+        "ar": "",
+        "tag": "Nomen"
+    },
+    {
+        "sp": "a",
+        "de": "a",
+        "ar": "a",
+        "tag": "any"
+    },
+    {
+        "sp": "s",
+        "de": "s",
+        "ar": "s",
+        "tag": "any"
+    },
+    {
+        "sp": "a",
+        "de": "a",
+        "ar": "a",
+        "tag": "any"
+    },
+    {
+        "sp": "a",
+        "de": "a",
+        "ar": "a",
+        "tag": "any"
+    },
+    {
+        "sp": "",
+        "de": "",
+        "ar": "",
+        "tag": "any"
     }
 ]

@@ -5,21 +5,6 @@ const load_dict = require("./load_dict")
 
 get_elem = (name) => document.getElementById(name)
 
-
-// check_null = (list) => {
-//     return false
-    
-//     for (element of list) {
-//         if (element == '') {
-//             alert("write smt")
-//             console.log(list)
-//             return true
-//         }
-//     }
-    
-//     return false
-// }
-
 new_word_button = get_elem("add-button")
 bottom_container = get_elem("new-word-container")
 add_button = get_elem("add-button")
@@ -42,6 +27,7 @@ move_container = () => {
 new_word_button.addEventListener("click", move_container) 
 
 save_button.addEventListener("click", () => {
+
     const values = Array.from(new_word_container.children)
     const check_null = (value) => value ? value : ""
     e = get_elem("tag-selector")

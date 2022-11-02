@@ -6,6 +6,35 @@ body {
   height: 100vh;
   flex-direction: column; }
 
+#pop-up-menu-container {
+  position: absolute;
+  display: none;
+  background: rgba(0, 0, 0, 0.1);
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  z-index: 50; }
+  #pop-up-menu-container #pop-up-menu {
+    background: #ffc963;
+    width: 500px;
+    height: 40%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 30px; }
+    #pop-up-menu-container #pop-up-menu #answer {
+      height: 50px;
+      width: 40%;
+      margin-bottom: 10px; }
+    #pop-up-menu-container #pop-up-menu #template-container {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      justify-content: center;
+      align-items: center; }
+
 #tag-selector-button {
   position: fixed;
   right: 0;
@@ -52,18 +81,18 @@ body {
     overflow-x: visible;
     overflow-y: scroll;
     z-index: 41; }
-    #tag-selector-background #tag-selector-container #tag-selector-top-section {
+    #tag-selector-background #tag-selector-container .tag-selector-top-section {
       display: flex;
       justify-content: space-between; }
-      #tag-selector-background #tag-selector-container #tag-selector-top-section h1 {
-        position: relative;
-        display: block; }
-      #tag-selector-background #tag-selector-container #tag-selector-top-section #upper-right-container {
+      #tag-selector-background #tag-selector-container .tag-selector-top-section .upper-right-container {
         width: 200px;
         display: flex;
         justify-content: center;
         align-items: center; }
-        #tag-selector-background #tag-selector-container #tag-selector-top-section #upper-right-container button {
+        #tag-selector-background #tag-selector-container .tag-selector-top-section .upper-right-container h1 {
+          position: relative;
+          display: block; }
+        #tag-selector-background #tag-selector-container .tag-selector-top-section .upper-right-container button {
           background: white;
           width: 90px;
           height: 80%;
@@ -71,6 +100,8 @@ body {
           border: None;
           border: 2px solid black;
           border-radius: 5px; }
+        #tag-selector-background #tag-selector-container .tag-selector-top-section .upper-right-container #stop-tag-button {
+          display: none; }
     #tag-selector-background #tag-selector-container .button {
       width: 180px;
       height: 110px;
@@ -79,73 +110,75 @@ body {
       margin: 5px;
       background: white;
       transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.2s; }
-    #tag-selector-background #tag-selector-container #tag-container {
+    #tag-selector-background #tag-selector-container .button-container {
       height: auto;
       display: flex;
       flex-wrap: wrap;
-      background: None; }
-      #tag-selector-background #tag-selector-container #tag-container .tag-button-wrapper {
-        position: relative; }
-        #tag-selector-background #tag-selector-container #tag-container .tag-button-wrapper #edit-input-container {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          flex-wrap: wrap;
-          transform: translate(-50%, -50%) rotateY(180deg);
-          width: 80%;
-          height: 80%;
-          opacity: 0;
-          visibility: hidden;
-          transition: cubic-bezier(0.23, 1, 0.32, 1) 0.1s;
-          transition-delay: .15s; }
-          #tag-selector-background #tag-selector-container #tag-container .tag-button-wrapper #edit-input-container input {
-            width: 100%;
-            height: 40%; }
-          #tag-selector-background #tag-selector-container #tag-container .tag-button-wrapper #edit-input-container button {
-            position: relative;
-            width: 25%;
-            height: 0;
-            padding-bottom: 20%;
-            margin: 0 12.5% 0 12.5%; }
-          #tag-selector-background #tag-selector-container #tag-container .tag-button-wrapper #edit-input-container #edit-input-cancel {
-            margin-right: 5%; }
-          #tag-selector-background #tag-selector-container #tag-container .tag-button-wrapper #edit-input-container #edit-input-save {
-            margin-left: 5%; }
-        #tag-selector-background #tag-selector-container #tag-container .tag-button-wrapper .edit-tag-mode-button {
-          position: absolute;
-          width: 30px;
-          height: 30px;
-          top: 0;
-          z-index: 16;
-          background: white;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          display: None;
-          transition: cubic-bezier(0.23, 1, 0.32, 1) 0.2s;
-          border: None;
-          border: 1px solid black;
-          border-radius: 2px;
-          opacity: 0.7; }
-          #tag-selector-background #tag-selector-container #tag-container .tag-button-wrapper .edit-tag-mode-button img {
-            width: 25px;
-            height: 25px; }
-        #tag-selector-background #tag-selector-container #tag-container .tag-button-wrapper .edit-tag-mode-button:hover {
-          transform: scale(1.45);
-          opacity: 1; }
-        #tag-selector-background #tag-selector-container #tag-container .tag-button-wrapper #delete-tag:hover {
-          background: #ff3838;
-          border-color: white; }
-          #tag-selector-background #tag-selector-container #tag-container .tag-button-wrapper #delete-tag:hover img {
-            filter: brightness(0) invert(1); }
-        #tag-selector-background #tag-selector-container #tag-container .tag-button-wrapper #delete-tag {
-          right: 0px; }
-        #tag-selector-background #tag-selector-container #tag-container .tag-button-wrapper #edit-tag {
-          left: 0px; }
+      background: None;
+      justify-content: center; }
+    #tag-selector-background #tag-selector-container .tag-button-wrapper {
+      position: relative;
+      transition: all ease 1s; }
+      #tag-selector-background #tag-selector-container .tag-button-wrapper #edit-input-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        transform: translate(-50%, -50%) rotateY(180deg);
+        width: 80%;
+        height: 80%;
+        opacity: 0;
+        visibility: hidden;
+        transition: cubic-bezier(0.23, 1, 0.32, 1) 0.1s;
+        transition-delay: .10s; }
+        #tag-selector-background #tag-selector-container .tag-button-wrapper #edit-input-container input {
+          width: 100%;
+          height: 40%; }
+        #tag-selector-background #tag-selector-container .tag-button-wrapper #edit-input-container button {
+          position: relative;
+          width: 25%;
+          height: 0;
+          padding-bottom: 20%;
+          margin: 0 12.5% 0 12.5%; }
+        #tag-selector-background #tag-selector-container .tag-button-wrapper #edit-input-container #edit-input-cancel {
+          margin-right: 5%; }
+        #tag-selector-background #tag-selector-container .tag-button-wrapper #edit-input-container #edit-input-save {
+          margin-left: 5%; }
+      #tag-selector-background #tag-selector-container .tag-button-wrapper .edit-tag-mode-button {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        top: 0;
+        z-index: 16;
+        background: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        display: none;
+        opacity: 0;
+        transition: cubic-bezier(0.23, 1, 0.32, 1) 0.2s;
+        border: None;
+        border: 1px solid black;
+        border-radius: 2px; }
+        #tag-selector-background #tag-selector-container .tag-button-wrapper .edit-tag-mode-button img {
+          width: 25px;
+          height: 25px; }
+      #tag-selector-background #tag-selector-container .tag-button-wrapper .edit-tag-mode-button:hover {
+        transform: scale(1.45);
+        opacity: 1 !important; }
+      #tag-selector-background #tag-selector-container .tag-button-wrapper #delete-tag:hover {
+        background: #ff3838;
+        border-color: white; }
+        #tag-selector-background #tag-selector-container .tag-button-wrapper #delete-tag:hover img {
+          filter: brightness(0) invert(1); }
+      #tag-selector-background #tag-selector-container .tag-button-wrapper #delete-tag {
+        right: 0px; }
+      #tag-selector-background #tag-selector-container .tag-button-wrapper #edit-tag {
+        left: 0px; }
 
 #bottom-container {
   position: fixed;
@@ -154,6 +187,7 @@ body {
   justify-content: space-between;
   width: 100vw;
   height: 150px;
+  pointer-events: none;
   align-items: center;
   z-index: 30; }
   #bottom-container #page-index {
@@ -191,7 +225,9 @@ body {
         margin: 5px;
         border: none;
         border: 1px solid #8f8f8f;
-        border-radius: 8px; }
+        border-radius: 8px;
+        pointer-events: auto;
+        cursor: text; }
     #bottom-container #new-word-container #input-save-container {
       width: 50%;
       display: flex;
@@ -202,7 +238,9 @@ body {
       #bottom-container #new-word-container #input-save-container #tag-selector {
         width: 70%;
         height: 20%;
-        border-radius: 10px; }
+        border-radius: 10px;
+        pointer-events: auto;
+        cursor: pointer; }
       #bottom-container #new-word-container #input-save-container #save-word-button {
         width: 200px;
         height: 80px;
@@ -211,7 +249,9 @@ body {
         border-radius: 15px;
         color: #ff9a4c;
         background: white;
-        transition: cubic-bezier(0.215, 0.61, 0.355, 1) 0.2s; }
+        transition: cubic-bezier(0.215, 0.61, 0.355, 1) 0.2s;
+        pointer-events: auto;
+        cursor: pointer; }
       #bottom-container #new-word-container #input-save-container #save-word-button:hover {
         box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
         transform: scale(1.05) translateY(-10px); }
@@ -236,7 +276,9 @@ body {
         color: white;
         background-color: #ff9a4c;
         border: 1px solid #909090;
-        border-radius: 20px; }
+        border-radius: 20px;
+        pointer-events: auto;
+        cursor: pointer; }
       #bottom-container #word-create-container #add-button-wrapper #add-button {
         transition: cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s; }
         #bottom-container #word-create-container #add-button-wrapper #add-button p {
@@ -347,7 +389,12 @@ body {
     background: #fcfcfc;
     border-right: 1px solid #ababab;
     border-left: 1px solid #ababab;
+    border-bottom: 1px solid #ababab;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin-bottom: 130px;
+    padding-bottom: 30px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
     display: flex;
     flex-direction: column;
     width: 80vw;
@@ -360,7 +407,9 @@ body {
       font-family: 'Arimo', sans-serif;
       font-size: 20px;
       margin-top: 20px;
-      background: #fcfcfc; }
+      background: #fcfcfc;
+      resize: none;
+      height: 100vh; }
     #language-container #dictionary #page-text-area:focus {
       outline: 0;
       outline-color: transparent;
