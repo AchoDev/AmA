@@ -16,7 +16,7 @@ function popup_question(question, options, functions) {
 
     let value = null
 
-    console.log("test")
+
 
     menu.querySelector("#question").innerText = question
 

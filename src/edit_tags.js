@@ -7,11 +7,11 @@ fs = require("fs")
 get_elem = (name) => document.getElementById(name)
 const get_class = (name) => document.getElementsByClassName(name)
 
-edit_tags_button = get_elem("edit-tag-button")
-stop_edit_button = get_elem("stop-tag-button")
+const edit_tags_button = get_elem("edit-tag-button")
+const stop_edit_button = get_elem("stop-tag-button")
 
 tag_buttons = get_class("tag-button-wrapper")
-selector_container = get_elem("tag-selector-container")
+const selector_container = get_elem("tag-selector-container")
 
 
 for(let button of tag_buttons) {
@@ -79,6 +79,7 @@ function remove_from_tags(tag) {
 edit_tags_button.addEventListener("click", () => {
     
     intervals = []
+
     
 
     stop_edit_button.addEventListener("click", () => {

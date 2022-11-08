@@ -10,16 +10,17 @@ const alphabet = ["All", "A","B","C", "Ch","D","E","F","G","H","I","J","K","L","
 get_elem = (name) => document.getElementById(name)
 
 
-tag_container = get_elem("letter-container");
-letter_button = get_elem("char-button-template");
+const tag_container = get_elem("letter-container");
+const letter_button = get_elem("char-button-template");
 
-tag_select_button = get_elem("tag-selector-button")
-tag_select_menu = get_elem("tag-selector-background")
+const tag_select_button = get_elem("tag-selector-button")
+const tag_select_menu = get_elem("tag-selector-background")
 
-tag_button_template = get_elem("tag-button-template")
-page_button_container = get_elem("page-container")
+const tag_button_template = get_elem("tag-button-template")
+const page_button_container = get_elem("page-container")
 
-tag_option_template = get_elem("tag-option-template")
+const tag_option_template = get_elem("tag-option-template")
+
 
 fs = require("fs");
 
@@ -37,8 +38,7 @@ let tagRawData = () => {
     })
 }
 
-tag_buttons = document.getElementsByClassName("tag-button")
-page_buttons = document.getElementsByClassName("select-page-button")
+// page_buttons = document.getElementsByClassName("select-page-button")
 
 tags = []
 pages = []
@@ -217,20 +217,18 @@ tag_select_button.addEventListener("click", () => {
 const selected_tag_indicator = get_elem("selected-tag-indicator")
 
 function add_click_listeners() {
-    
+    const tag_buttons = document.getElementsByClassName("tag-button")
     for(let elem of tag_buttons) {
+
         elem.addEventListener("click", () => {
             
             dc.style.borderTopRightRadius = "0px"
             dc.style.borderTopLeftRadius = "0px"
             dc.style.marginTop = "0px"
     
-
             close_menu()
             load_page.deload_page()
             
-
-
             dict.change_selected_tag(elem.value)
             update.update()
     
@@ -242,32 +240,33 @@ function add_click_listeners() {
             }
     
             document.getElementById("tag-selector").value = elem.value
-            
         })
+
+        
     }
     
     const dc = get_elem("dictionary")
     
-    for(let btn of page_buttons) {
+    // for(let btn of page_buttons) {
         
-        btn.addEventListener("click", () => {
-            close_menu()
+    //     btn.addEventListener("click", () => {
+    //         close_menu()
                 
-            if(btn.value == "sv") {
-                load_page.load_directory()
-                return
-            }
+    //         if(btn.value == "sv") {
+    //             load_page.load_directory()
+    //             return
+    //         }
             
             
-            load_page.load_page(btn.value)
+    //         load_page.load_page(btn.value)
 
-            dc.style.borderTopRightRadius = "10px"
-            dc.style.borderTopLeftRadius = "10px"
-            dc.style.marginTop = "30px"
+    //         dc.style.borderTopRightRadius = "10px"
+    //         dc.style.borderTopLeftRadius = "10px"
+    //         dc.style.marginTop = "30px"
 
-        })
+    //     })
          
-    }
+    // }
 
 }
 
