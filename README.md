@@ -1,4 +1,4 @@
-![Logo](./amalogo.png)
+![Logo](./logoama.png)
 
 # AmA
 
