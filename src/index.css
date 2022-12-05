@@ -7,7 +7,7 @@ body {
   flex-direction: column; }
 
 #pop-up-menu-container {
-  position: absolute;
+  position: fixed;
   display: none;
   background: rgba(0, 0, 0, 0.1);
   width: 100vw;
@@ -23,40 +23,27 @@ body {
     justify-content: space-around;
     align-items: center;
     flex-direction: column;
+    overflow: scroll;
     border-radius: 30px; }
     #pop-up-menu-container #pop-up-menu #answer {
       height: 50px;
       width: 40%;
-      margin-bottom: 10px; }
+      margin-bottom: 10px;
+      display: block; }
+    #pop-up-menu-container #pop-up-menu textarea {
+      display: none;
+      width: 90%;
+      height: 80%; }
     #pop-up-menu-container #pop-up-menu #template-container {
       display: flex;
       flex-direction: column;
       width: 100%;
       justify-content: center;
       align-items: center; }
-
-#tag-selector-button {
-  position: fixed;
-  right: 0;
-  top: 0;
-  height: 100px;
-  width: 130px;
-  color: white;
-  right: 10px;
-  top: 10px;
-  z-index: 20;
-  border: None;
-  border-radius: 10px;
-  font-size: 28px;
-  background-color: #ff9a4c;
-  cursor: pointer;
-  transition: cubic-bezier(0.165, 0.84, 0.44, 1) 0.2s; }
-
-#tag-selector-button:hover {
-  transform: scale(1.1); }
-
-#tag-selector-button:active {
-  transform: scale(1); }
+    #pop-up-menu-container #pop-up-menu #text-container {
+      display: none;
+      height: 80%;
+      width: 50%; }
 
 #tag-selector-background {
   width: 100vw;
@@ -76,7 +63,7 @@ body {
     width: 70%;
     height: 90%;
     margin-top: 60px;
-    background-color: #ff9a4c;
+    background: linear-gradient(40deg, #ffae70, #ffbd38);
     border-radius: 10px;
     overflow-x: visible;
     overflow-y: scroll;
@@ -85,7 +72,7 @@ body {
       display: flex;
       justify-content: space-between; }
       #tag-selector-background #tag-selector-container .tag-selector-top-section .upper-right-container {
-        width: 200px;
+        width: auto;
         display: flex;
         justify-content: center;
         align-items: center; }
@@ -347,8 +334,8 @@ body {
       transform: translateY(-1px); }
 
 #language-container {
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  background-color: white;
+  box-shadow: black 0px 20px 45px;
+  background: linear-gradient(167deg, #ffa42f, #ffc98a);
   flex-grow: 1;
   display: flex;
   flex-direction: row;

@@ -1,68 +1,50 @@
 [
     {
-        "sp": "hola",
-        "de": "hallo",
-        "ar": "selam",
+        "sp": "aaaa",
+        "de": "a",
+        "ar": "a",
         "tag": "any"
     },
     {
-        "sp": "haga",
-        "de": "casa",
-        "ar": "",
-        "tag": "Verben"
+        "sp": "aaaa",
+        "de": "a",
+        "ar": "a",
+        "tag": "any"
     },
     {
-        "sp": "halli",
-        "de": "hallo",
-        "ar": "",
-        "tag": "Nomen"
+        "sp": "aaaa",
+        "de": "a",
+        "ar": "a",
+        "tag": "any"
     },
     {
-        "sp": "wie",
-        "de": "gehts",
+        "sp": "¿selam my nam is ahmed?",
+        "de": "",
         "ar": "",
-        "tag": "Nomen"
+        "tag": "any"
     },
     {
-        "sp": "haga",
-        "de": "casa",
+        "sp": "¡HELLO TEST TETS!",
+        "de": "",
         "ar": "",
+        "tag": "any"
+    },
+    {
+        "sp": "nigger",
+        "de": "nigger",
+        "ar": "niggéroius",
         "tag": "any"
     },
     {
         "sp": "",
         "de": "",
         "ar": "",
-        "tag": "Nomen"
-    },
-    {
-        "sp": "a",
-        "de": "a",
-        "ar": "a",
-        "tag": "any"
-    },
-    {
-        "sp": "s",
-        "de": "s",
-        "ar": "s",
-        "tag": "any"
-    },
-    {
-        "sp": "a",
-        "de": "a",
-        "ar": "a",
-        "tag": "any"
-    },
-    {
-        "sp": "a",
-        "de": "a",
-        "ar": "a",
-        "tag": "any"
+        "tag": "Neue Kategorie"
     },
     {
         "sp": "",
         "de": "",
         "ar": "",
-        "tag": "any"
+        "tag": "Neue Kategorie"
     }
 ]

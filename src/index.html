@@ -1,8 +1,10 @@
+
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="menu.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com"> 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
@@ -18,7 +20,10 @@
           <button id="answer">lorem ipsum</button>
         </template>
 
+        <textarea name="Textarea" cols="30" rows="10"></textarea>
         <div id="template-container"></div>
+        
+        <div id="text-container"></div>
         
       </div>
     </div>
@@ -28,9 +33,10 @@
         <div class="tag-selector-top-section">
           <h1>Kategorien</h1>
           <div class="upper-right-container">
-            <button id="stop-tag-button">stop</button>
-            <button id="edit-tag-button">edit tags</button>
-            <button id="add-tag-button">new tag</button>
+            <button id="stop-tag-button">Stop</button>
+            <button id="edit-tag-button">Kategorien Bearbeiten</button>
+            <button id="add-tag-button">Neue Kategorie</button>
+            <button id="add-page-button">Neue Seite</button>
           </div>
         </div>
 
@@ -41,7 +47,7 @@
                 <img src="../images/delete-button.png" alt="Delete">
               </button>
               <button id="edit-tag" class="edit-tag-mode-button">
-                <img src="../images/edit-button.png" alt="Edit"> 
+                <img src="../images/edit-button.png" alt="Edit">
               </button>
 
               <button class="tag-button button" value="">
@@ -73,7 +79,18 @@
     </div>
 
 
-    <button id="tag-selector-button">Kategorie</button>
+    <button id="open-menu-button">
+      <img src="../images/menu-button.png" alt="Menu">
+    </button>
+
+    <div id="menu-background">
+      <div id="menu-container">
+        <button id="tag-selector-button" class="menu-button">Kategorie</button>
+        <button id="settings-button" class="menu-button">Einstellungen</button>
+        <button id="save-button" class="menu-button">Speichern&Laden</button>
+      </div>
+    </div>
+
 
     <div id="bottom-container">
 
@@ -90,12 +107,11 @@
           </div>
 
           <div id="input-save-container">
+            <template id="tag-option-template">
+              <option value="temp"></option>
+            </template>
             <select name="tag" id="tag-selector">
               <option value="any">Kategorie auswählen</option>
-              <template id="tag-option-template">
-                <option value="temp"></option>
-              </template>
-              
             </select>
   
             <button id="save-word-button">Speichern</button>
@@ -206,7 +222,6 @@
 
   <script src="tags.js"></script>
   <script src="create_word.js"></script>
-  <!-- <script src="load_dict.js"></script> -->
-  <!-- <script src="page_buttons.js"></script> -->
   <script src="edit_tags.js"></script>
+  <script src="menu.js"></script>
 </html>

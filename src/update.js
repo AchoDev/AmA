@@ -4,8 +4,20 @@ const dict = require("./dict")
 get_elem = (name) => document.getElementById(name)
 
 const update = () => {
-    dict.update_dict()
-    load_dict.update_page()
+
+    function delay(time) {
+        return new Promise(resolve => setTimeout(resolve, time));
+    }
+
+    if(dict.update_dict()) {
+        delay(10).then(() => {
+            dict.update_dict()
+            load_dict.update_page()
+        })
+    } else {
+        dict.update_dict()
+        load_dict.update_page()
+    }
 }
 
 module.exports = {update, get_elem}

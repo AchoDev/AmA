@@ -1,5 +1,7 @@
-const popup_question = require("./popupmenu")
-add_click_listeners = require("./tags")
+
+let pp = require("./popupmenu")
+ tags = require("./tags")
+add_click_listeners = require("./button_listeners")
 
 
 fs = require("fs")
@@ -8,10 +10,12 @@ get_elem = (name) => document.getElementById(name)
 const get_class = (name) => document.getElementsByClassName(name)
 
 const edit_tags_button = get_elem("edit-tag-button")
+const add_tags_button = get_elem("add-tag-button")
+const add_page_button = get_elem("add-page-button")
 const stop_edit_button = get_elem("stop-tag-button")
 
 tag_buttons = get_class("tag-button-wrapper")
-const selector_container = get_elem("tag-selector-container")
+
 
 
 for(let button of tag_buttons) {
@@ -56,9 +60,23 @@ const search_tags = (id, fnc) => {
             }
         })
     } catch(e) {
-        console.log("man")
+
     }
     
+}
+
+function append_to_tags(tag) {
+    
+    function delay(time) {
+        return new Promise(resolve => setTimeout(resolve, time));
+    }
+
+    delay(10).then(() => {
+        raw_tags = JSON.parse(tagRawData())
+        raw_tags.push(tag)
+    
+        write()
+    })
 }
 
 function edit_tags(tag, new_name) {
@@ -75,64 +93,110 @@ function remove_from_tags(tag) {
     write()
 }
 
-
-edit_tags_button.addEventListener("click", () => {
-    
-    intervals = []
-
-    
-
-    stop_edit_button.addEventListener("click", () => {
-        intervals.forEach(element => {
-            clearInterval(element)
-        })
-
-        add_click_listeners()
-
-        edit_tags_button.style.display = "initial"
-        stop_edit_button.style.display = "none"
-
-        
-        const set_button = (button) => {
-            button.style.transform = "scale(1) rotate(0)"
-            
-        
-            button.querySelector("#edit-tag").style.opacity = "0"
-            button.querySelector("#delete-tag").style.opacity = "0"
-            
-            delay(200).then(() => {
-                button.querySelector("#edit-tag").style.display = "none"
-                button.querySelector("#delete-tag").style.display = "none"
-            }) 
-            
-            button.onmouseover =  () => {
-                button.style.transform = "scale(1.1)"
-                button.style.transition = "cubic-bezier(0.075, 0.82, 0.165, 1) 0.2s"
-            }    
-            
-            button.onmouseleave = () => {
-                button.style.transform = "scale(1)"
-            }
-
-
-        }
-        
-        for(let button of tag_buttons) {
-            set_button(button)
-        }
-
-        // for(let button of page_buttons) {
-        //     set_button(button)
-        // }
+add_tags_button.addEventListener("click", () => {
+    const random_id = (Math.random() + 1).toString(36).substring(7)
+    append_to_tags({
+        "id": random_id,
+        "name": "Neue Kategorie",
+        "type": "word"
     })
+
+    function delay(time) {
+        return new Promise(resolve => setTimeout(resolve, time));
+    }
+
+    delay(15).then(() => {
+        tags.create_all_buttons()
+        stop_editing()
+    })
+})
+
+add_page_button.addEventListener("click", () => {
+    const random_id = (Math.random() + 1).toString(36).substring(7)
+    append_to_tags({
+        "id": random_id,
+        "name": "Neue Seite",
+        "type": "page"
+    })
+
+    function delay(time) {
+        return new Promise(resolve => setTimeout(resolve, time));
+    }
+
+    delay(15).then(() => {
+        tags.create_all_buttons()
+        stop_editing()
+    })
+})
+
+edit_tags_button.addEventListener("click", etEvent)
+
+let intervals = []
+
+function stop_editing() {
+
+    tags.create_selctors()
+
+    intervals.forEach(element => {
+        clearInterval(element)
+    })
+
+    add_click_listeners()
+
+    edit_tags_button.style.display = "initial"
+    stop_edit_button.style.display = "none"
+
+
+    function delay(time) {
+        return new Promise(resolve => setTimeout(resolve, time));
+    }
+
+    
+    const set_button = (button) => {
+        button.style.transform = "scale(1) rotate(0)"
+        
+    
+        button.querySelector("#edit-tag").style.opacity = "0"
+        button.querySelector("#delete-tag").style.opacity = "0"
+        
+        delay(200).then(() => {
+            button.querySelector("#edit-tag").style.display = "none"
+            button.querySelector("#delete-tag").style.display = "none"
+        }) 
+        
+        button.onmouseover =  () => {
+            button.style.transform = "scale(1.1)"
+            button.style.transition = "cubic-bezier(0.075, 0.82, 0.165, 1) 0.2s"
+        }    
+        
+        button.onmouseleave = () => {
+            button.style.transform = "scale(1)"
+        }
+
+
+    }
+    
+    for(let button of tag_buttons) {
+        set_button(button)
+    }
+
+    // for(let button of page_buttons) {
+    //     set_button(button)
+    // }
+}
+
+stop_edit_button.addEventListener("click", stop_editing)
+
+function etEvent() {
+    intervals = []
 
     edit_tags_button.style.display = "none"
     stop_edit_button.style.display = "initial"
 
     for(let button of tag_buttons) {
         
-        cancel_button = button.querySelector("#edit-input-cancel")
-        save_button = button.querySelector("#edit-input-save")
+        const cancel_button = button.querySelector("#edit-input-cancel")
+        const save_button = button.querySelector("#edit-input-save")
        
 
         cancel_button.addEventListener("click", (event) => {
@@ -197,13 +261,11 @@ edit_tags_button.addEventListener("click", () => {
         })
 
         function delete_tag_event() {
-            popup_question("alle wörter löschen??", ["ja", "ne", "abbrechen"], [
+            pp.popup_question("alle wörter löschen??", ["ja", "ne", "abbrechen"], [
                 () => {
-
                     remove_button()
                 },
                 () => {
-
                     remove_button()
                 },
                 () => {}])
@@ -294,4 +356,4 @@ edit_tags_button.addEventListener("click", () => {
             }
         }
     }
-})
+}

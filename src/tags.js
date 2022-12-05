@@ -38,17 +38,13 @@ let tagRawData = () => {
     })
 }
 
-// page_buttons = document.getElementsByClassName("select-page-button")
-
-tags = []
+let tags = []
 pages = []
 
-for(let element of JSON.parse(tagRawData())) {
-    if (element.type == "word") {tags.push(element)}
-    else {pages.push(element)}
-}
+
 
 function create_button(text, value, id, cls=null) {
+
     const btnClone = tag_button_template.content.cloneNode(true)
 
     const btn = btnClone.querySelectorAll("button")[2]
@@ -66,41 +62,82 @@ function create_button(text, value, id, cls=null) {
     return btnClone
 }
 
+create_all_buttons()
 
-for(element of tags) {
-    const optClone = tag_option_template.content.cloneNode(true)
-    const option = optClone.querySelector("option")
+function create_selctors() {
+    const optContainer = get_elem("tag-selector")
+    removeAllChildNodes(optContainer)
+    for(element of tags) {
+        const optClone = tag_option_template.content.cloneNode(true)
+        const option = optClone.querySelector("option")
 
-    let name = element.name
-    let value = element.name
+        let name = element.name
+        let value = element.name
+        
+        option.value = value
+        option.innerText = name
     
-    option.value = value
-    option.innerText = name
+        if(name == "any") {
+            name = "Alle"
+        }
+    
+        optContainer.appendChild(optClone)    
+    }
+}
 
-    if(name == "any") {
-        name = "Alle"
+function removeAllChildNodes(parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
+}
+
+function create_all_buttons() {
+
+    tags = []
+    pages = []
+
+    const rawData = JSON.parse(tagRawData())
+    
+    for(let element of rawData) {
+        if (element.type == "word") {tags.push(element)}
+        else {pages.push(element)}
+    }
+
+    
+    
+    const tag_cont = get_elem("tag-container")
+
+    removeAllChildNodes(tag_cont)
+    removeAllChildNodes(page_button_container)
+
+    tag_cont.appendChild(tag_button_template)
+
+    create_selctors()
+
+    for(element of tags) {
+        let name = element.name
+        let value = element.name
+    
+        if(name == "any") {
+            name = "Alle"
+        }
+        
+        const btn = create_button(name, value, element.id)
+          
+        tag_button_template.parentNode.appendChild(btn)    
     }
     
-    const btn = create_button(name, value, element.id)
-   
+    for(let page of pages) {
+        
+        btn = create_button(page.name, page.name, page.id, "select-page-button")
     
-    tag_button_template.parentNode.appendChild(btn)
-
-
-    tag_option_template.parentNode.appendChild(optClone)
+        page_button_container.appendChild(btn)
+    }
     
+    // const dirPage = create_button("program data", "sv", 11111, "select-page-button")
+    
+    // page_button_container.appendChild(dirPage)
 }
-
-for(let page of pages) {
-    
-    btn = create_button(page.name, page.name, page.id, "select-page-button")
-
-    page_button_container.appendChild(btn)
-}
-
-const dirPage = create_button("program data", "sv", 11111, "select-page-button")
-
-page_button_container.appendChild(dirPage)
 
 
 
@@ -122,7 +159,7 @@ if(tag_container.children.length == 1) {
             button.style.zIndex = "14";
             button.style.transform = "translateY(1px)"
             button.style.borderBottom = "None"
-            button.style.background = "blue"
+            button.style.background = "orange"
             button.style.color = "white"
     
     
@@ -178,7 +215,7 @@ if(tag_container.children.length == 1) {
             button.style.borderBottom = "None"
             
             if (button.innerText == "All") {
-                button.style.background = "blue";
+                button.style.background = "orange";
             } else {
                 button.style.background = "orange"
             }
@@ -216,60 +253,4 @@ tag_select_button.addEventListener("click", () => {
 
 const selected_tag_indicator = get_elem("selected-tag-indicator")
 
-function add_click_listeners() {
-    const tag_buttons = document.getElementsByClassName("tag-button")
-    for(let elem of tag_buttons) {
-
-        elem.addEventListener("click", () => {
-            
-            dc.style.borderTopRightRadius = "0px"
-            dc.style.borderTopLeftRadius = "0px"
-            dc.style.marginTop = "0px"
-    
-            close_menu()
-            load_page.deload_page()
-            
-            dict.change_selected_tag(elem.value)
-            update.update()
-    
-            if(elem.value != "any") {
-                selected_tag_indicator.style.display = "inherit"
-                selected_tag_indicator.innerText = `Kategorie: ${elem.value}`
-            } else {
-                selected_tag_indicator.style.display = "none"
-            }
-    
-            document.getElementById("tag-selector").value = elem.value
-        })
-
-        
-    }
-    
-    const dc = get_elem("dictionary")
-    
-    // for(let btn of page_buttons) {
-        
-    //     btn.addEventListener("click", () => {
-    //         close_menu()
-                
-    //         if(btn.value == "sv") {
-    //             load_page.load_directory()
-    //             return
-    //         }
-            
-            
-    //         load_page.load_page(btn.value)
-
-    //         dc.style.borderTopRightRadius = "10px"
-    //         dc.style.borderTopLeftRadius = "10px"
-    //         dc.style.marginTop = "30px"
-
-    //     })
-         
-    // }
-
-}
-
-add_click_listeners()
-
-module.exports = add_click_listeners
+module.exports = { create_all_buttons, create_selctors }

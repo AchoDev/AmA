@@ -4,7 +4,6 @@ const remoteMain = require('@electron/remote/main');
 
 const fs = require('fs');
 
-
 remoteMain.initialize();
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
@@ -42,6 +41,9 @@ const createWindow = () => {
 
   remoteMain.enable(mainWindow.webContents)
 
+  mainWindow.once('ready-to-show', () => {
+    mainWindow.show();
+  })
 
   mainWindow.webContents.openDevTools()
   

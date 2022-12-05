@@ -6,7 +6,8 @@ const directory = path.resolve(__dirname, "../dictionary.json")
 const ignored_letters = ["¡", "¿", "!", "?"]
 
 const search_list = (value) => {
-    for(let letter in ignored_letters) {
+
+    for(let letter of ignored_letters) {
         if(letter == value) {
             return true
         }
@@ -32,16 +33,20 @@ let dictionary
 const get_dictionary = () => dictionary
 
 function update_dict() {
+    
     try {
         dictionary = JSON.parse(rawData())
-    } catch(err) {}
+    } catch(err) {return true}
     
     if (selected_letter != "any") {
         for(let i = 0; i < dictionary.length; i++){
 
             let dicLetter = dictionary[i].sp.charAt(0).toUpperCase()
+
+
             if(search_list(dicLetter)) {
-                break
+                
+                dicLetter = dictionary[i].sp.charAt(1).toUpperCase()
             }
             firstTwo = dictionary[i].sp.substring(0, 2).toUpperCase()
 
@@ -55,7 +60,6 @@ function update_dict() {
 
     if (selected_tag != "any") {
         for(let i = 0; i < dictionary.length; i++){
-
             if(dictionary[i].tag != selected_tag) {
                 dictionary.splice(i, 1)
                 i--
@@ -68,7 +72,6 @@ function update_dict() {
         var textB = b.sp.toUpperCase();
         return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
     });
-
 }
 
 const change_selected_letter = (letter) => selected_letter = letter

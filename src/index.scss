@@ -41,7 +41,7 @@ $theme-color: lighten(rgba(255,145,61,255), 3%);
 }
 
 #pop-up-menu-container {
-  position: absolute; 
+  position: fixed; 
   display: none;
   background: rgba(0, 0, 0, 0.1);
 
@@ -63,6 +63,8 @@ $theme-color: lighten(rgba(255,145,61,255), 3%);
     align-items: center;
     flex-direction: column;
 
+    overflow: scroll;
+
     border-radius: 30px;
 
     // #question {
@@ -72,7 +74,14 @@ $theme-color: lighten(rgba(255,145,61,255), 3%);
     #answer {
       height: 50px;
       width: 40%;
-      margin-bottom: 10px
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    textarea {
+      display: none;
+      width: 90%;
+      height: 80%;
     }
 
     #template-container {
@@ -82,41 +91,14 @@ $theme-color: lighten(rgba(255,145,61,255), 3%);
       justify-content: center;
       align-items: center;
     }
+
+    #text-container {
+      display: none;
+      height: 80%;
+      width: 50%;
+    }
   }
 }
-
-#tag-selector-button {
-  position: fixed;
-  right: 0;
-  top: 0;
-  height: 100px;
-  width: 130px;
-
-  color: white;
-
-  right: 10px;
-  top: 10px;
-
-  z-index: 20;
-
-  border: None;
-  border-radius: 10px;
-  font-size: 28px;
-
-  background-color: $theme-color;
-
-  cursor: pointer;
-
-  transition: cubic-bezier(0.165, 0.84, 0.44, 1) .2s;
-}
-
-#tag-selector-button:hover {
-  transform: scale(1.1);
-}
-#tag-selector-button:active {
-  transform: scale(1.0);
-}
-
 
 #tag-selector-background {
   width: 100vw;
@@ -144,7 +126,7 @@ $theme-color: lighten(rgba(255,145,61,255), 3%);
     width: 70%;
     height: 90%;
     margin-top: 60px;
-    background-color: $theme-color;
+    background: linear-gradient(40deg, lighten($theme-color, 7%), rgb(255, 189, 56));
     border-radius: 10px;
 
     overflow-x: visible;
@@ -166,7 +148,7 @@ $theme-color: lighten(rgba(255,145,61,255), 3%);
           position: relative;
           display: block;
         }
-        width: 200px;
+        width: auto;
         @include center_children();
   
         button {
@@ -564,8 +546,9 @@ $theme-color: lighten(rgba(255,145,61,255), 3%);
 }
 
 #language-container {
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  background-color: rgb(255, 255, 255);
+  box-shadow: rgba(0, 0, 0, 1) 0px 20px 45px;
+  // background-color: rgb(255, 255, 255);
+  background: linear-gradient(167deg,#ffa42f, #ffc98a);
   flex-grow: 1;
 
   display: flex;

@@ -34,17 +34,19 @@ function writePages(obj) {
 
 const findPage = (target) => {
     for(let page of JSON.parse(rawPageData())) {
-        if(page.name == target) {
+        if(page.id == target) {
             return page
         }
     }
     return null
 }
 
-const editPage = (target, content) => {
+
+
+const editPage = (id, content) => {
     allPages = JSON.parse(rawPageData())
     for(let page of allPages) {
-        if(page.name == target) {
+        if(page.id == id) {
             page.content = content
             writePages(allPages)
         }
@@ -53,12 +55,11 @@ const editPage = (target, content) => {
 
 save_changes_button.addEventListener("click", () => {
     editPage(selected_page, textarea.value)
-    console.log(textarea.value)
 })
 
-const create_new_page = (name, content) => {
+const create_new_page = (name, content, id) => {
     raw = JSON.parse(rawPageData())
-    raw.push({"name": name, "content": content})
+    raw.push({"content": content, "id": id})
     writePages(raw)
 }
 
@@ -66,8 +67,7 @@ function deload_page() {
     for(button of page_buttons) {
         button.style.display = "initial"
     }
-
-    
+   
     lang_name_container.style.display = "flex"
     add_button.style.display = "initial"
     textarea.style.display = "None"
@@ -97,14 +97,12 @@ function load_directory() {
 
     const pageObj = rawPageData()
 
-    console.log(pageObj)
-
     textarea.value = pageObj
 
     selected_page = "directory"
 }
 
-function load_page(page) {
+function load_page(name, id) {
 
     textarea.value = ""
 
@@ -117,22 +115,24 @@ function load_page(page) {
     add_button.style.display = "None"
     textarea.style.display = "initial"
     save_changes_button.style.display = "initial"
+    
+    
+    const pageObj = findPage(id)
+    
+    console.log(pageObj)
 
     letter_container.style.display = "None"
     headline.style.display = "block"
-    headline.innerText = page
-
-
-    const pageObj = findPage(page)
-
+    
+    headline.innerText = name
+    
     if(pageObj){
         textarea.value = pageObj.content
     } else {
-        create_new_page(page, textarea.value)
+        create_new_page(name, "", id)
     }
 
-
-    selected_page = page
+    selected_page = id
 }
 
 module.exports = {load_page, deload_page, load_directory}
