@@ -1,7 +1,10 @@
 let ppMenu = require("./popupmenu")
+tags = require("./tags")
 let upd = require("./update")
 
 const drc = path.resolve(__dirname, "../dictionary.json")
+const drcPage = path.resolve(__dirname, "../pages.json")
+const drcTag = path.resolve(__dirname, "../tags.json")
 
 const getRaw = () => {
     return fs.readFileSync(drc, 'utf-8', (err, data) => {
@@ -13,8 +16,28 @@ const getRaw = () => {
     })
 }
 
-function wrt(json) {
-    fs.writeFile(path.resolve(__dirname, "../dictionary.json"), JSON.stringify(json, null, 4), (err) => {
+const getRawPages = () => {
+    return fs.readFileSync(drcPage, 'utf-8', (err, data) => {
+        if(err) {
+            alert("an error occured\n\n" + err)
+            return null;
+        }
+        return data
+    })
+}
+
+const getRawTags = () => {
+    return fs.readFileSync(drcTag, 'utf-8', (err, data) => {
+        if(err) {
+            alert("an error occured\n\n" + err)
+            return null;
+        }
+        return data
+    })
+}
+
+function wrt(json, directory) {
+    fs.writeFile(path.resolve(__dirname, `../${directory}.json`), JSON.stringify(json, null, 4), (err) => {
         if (err) {
             alert("error\n\n" + err)
         }
@@ -45,35 +68,53 @@ menu_btn.addEventListener("mouseout", mExit)
 
 save_button.addEventListener("click", e => {
 
+    function readText(name) {
+        ppMenu.popup_area(`load ${name}`, v => {
+            if(v != "") {
+                ppMenu.popup_question("sure you want to load this? (current will be deleted)", ["sure", "no don't"], [
+                    () => {
+                        try {
+                            wrt(JSON.parse(v), name)
+                            ppMenu.closeMenu()
+                            upd.update()
+                        } catch(e) {
+                            ppMenu.popup_message("error while parsing json")
+                        }
+                    },
+                    () => {}
+                ], false)
+            } else {
+                ppMenu.popup_question("delete everything?", ["yes", "no"], [
+                    () => {
+                        wrt([], name)
+                        upd.update()
+                    },
+                    () => {}
+                ])
+            }
+        }, false)
+    }
+
     ppMenu.popup_question("save or load?", ["save", "load", "abbrechen"], [
             () => {
-                ppMenu.popup_text("save text", getRaw())
+                ppMenu.popup_question("save whaat?", ["dictionary", "pages", "tags"], [
+                    () => {
+                        ppMenu.popup_text("save text", getRaw())
+                    },
+                    () => {
+                        ppMenu.popup_text("save pages", getRawPages())
+                    },
+                    () => {
+                        ppMenu.popup_text("save tags", getRawTags())
+                    }
+                ])
             },
             () => {
-                ppMenu.popup_area("load text", v => {
-                    if(v != "") {
-                        ppMenu.popup_question("sure you want to load this? (current will be deleted)", ["sure", "no don't"], [
-                            () => {
-                                try {
-                                    wrt(JSON.parse(v))
-                                    ppMenu.closeMenu()
-                                    upd.update()
-                                } catch(e) {
-                                    ppMenu.popup_message("error while parsing json")
-                                }
-                            },
-                            () => {}
-                        ], false)
-                    } else {
-                        ppMenu.popup_question("delete everything?", ["yes", "no"], [
-                            () => {
-                                wrt([])
-                                upd.update()
-                            },
-                            () => {}
-                        ])
-                    }
-                }, false)
+                ppMenu.popup_question("load what?", ["dictionary", "pages", "tags"], [
+                    () => {readText("dictionary")},
+                    () => {readText("pages")},
+                    () => {readText("tags")}
+                ])
             },
             () => {ppMenu.closeMenu()}
         ], false

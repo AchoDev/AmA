@@ -107,10 +107,8 @@ function popup_question(question, options, functions, close=true) {
 
         btn.innerText = element
         btn.addEventListener("click", (event) => {
-            functions[index]()
-            
             if(close) { closeMenu() }
-
+            functions[index]()
         })
 
         answerContainer.appendChild(btn)

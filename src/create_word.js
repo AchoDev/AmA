@@ -36,8 +36,10 @@ save_button.addEventListener("click", () => {
         "sp": check_null(values[0].value),
         "de": check_null(values[1].value),
         "ar": check_null(values[2].value),
-        "tag": check_null(e.options[e.selectedIndex].value)
+        "tag": check_null(e.options[e.selectedIndex].dataset.id)
     })
+
+    console.log(e.options[e.selectedIndex].dataset.id)
 
     values[0].value = null
     values[1].value = null

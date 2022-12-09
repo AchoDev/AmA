@@ -133,7 +133,13 @@ edit_tags_button.addEventListener("click", etEvent)
 
 let intervals = []
 
+function delay(time) {
+    return new Promise(resolve => setTimeout(resolve, time));
+}
+
 function stop_editing() {
+
+    console.log("bbq bacon burger")
 
     tags.create_selctors()
 
@@ -147,15 +153,15 @@ function stop_editing() {
     stop_edit_button.style.display = "none"
 
 
-    function delay(time) {
-        return new Promise(resolve => setTimeout(resolve, time));
-    }
+    
 
     
     const set_button = (button) => {
+
+        button.style.transition = "cubic-bezier(0.075, 0.82, 0.165, 1) .35s"
         button.style.transform = "scale(1) rotate(0)"
         
-    
+        
         button.querySelector("#edit-tag").style.opacity = "0"
         button.querySelector("#delete-tag").style.opacity = "0"
         
@@ -165,15 +171,13 @@ function stop_editing() {
         }) 
         
         button.onmouseover =  () => {
-            button.style.transform = "scale(1.1)"
             button.style.transition = "cubic-bezier(0.075, 0.82, 0.165, 1) 0.2s"
+            button.style.transform = "scale(1.1)"
         }    
         
         button.onmouseleave = () => {
             button.style.transform = "scale(1)"
         }
-
-
     }
     
     for(let button of tag_buttons) {
@@ -185,7 +189,13 @@ function stop_editing() {
     // }
 }
 
-stop_edit_button.addEventListener("click", stop_editing)
+stop_edit_button.addEventListener("click", () => {
+    stop_editing()
+    delay(100).then(() => {
+        tags.create_all_buttons()
+        stop_editing()
+    })
+})
 
 function etEvent() {
     intervals = []

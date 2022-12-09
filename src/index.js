@@ -1,6 +1,8 @@
 const { app, BrowserWindow, Menu } = require('electron');
 const path = require('path');
 const remoteMain = require('@electron/remote/main');
+require('update-electron-app')()
+
 
 const fs = require('fs');
 

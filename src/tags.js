@@ -67,7 +67,9 @@ create_all_buttons()
 function create_selctors() {
     const optContainer = get_elem("tag-selector")
     removeAllChildNodes(optContainer)
+
     for(element of tags) {
+
         const optClone = tag_option_template.content.cloneNode(true)
         const option = optClone.querySelector("option")
 
@@ -76,6 +78,7 @@ function create_selctors() {
         
         option.value = value
         option.innerText = name
+        option.dataset.id = element.id
     
         if(name == "any") {
             name = "Alle"
@@ -103,8 +106,6 @@ function create_all_buttons() {
         else {pages.push(element)}
     }
 
-    
-    
     const tag_cont = get_elem("tag-container")
 
     removeAllChildNodes(tag_cont)

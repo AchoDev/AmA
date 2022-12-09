@@ -1,4 +1,6 @@
 let fs = require("fs");
+
+
 const path = require("path")
 
 const directory = path.resolve(__dirname, "../dictionary.json")
@@ -43,7 +45,6 @@ function update_dict() {
 
             let dicLetter = dictionary[i].sp.charAt(0).toUpperCase()
 
-
             if(search_list(dicLetter)) {
                 
                 dicLetter = dictionary[i].sp.charAt(1).toUpperCase()
@@ -59,7 +60,11 @@ function update_dict() {
     }
 
     if (selected_tag != "any") {
+
+        console.log(selected_tag)
+
         for(let i = 0; i < dictionary.length; i++){
+            console.log(dictionary[i].tag)
             if(dictionary[i].tag != selected_tag) {
                 dictionary.splice(i, 1)
                 i--
