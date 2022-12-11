@@ -84,7 +84,7 @@ function popup_text(headline, text) {
 
     menu.querySelector("#text-container").style.display = "block"
     
-    btn.innerText = "ok"
+    btn.innerText = "Okay"
     btn.addEventListener("click", (event) => {
         closeMenu()
     })

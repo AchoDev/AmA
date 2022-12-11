@@ -5,6 +5,10 @@
   "description": "Very important description",
   "main": "src/index.js",
   "pack": "npx electron-builder --dir",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AchoDev/AmA"
+  },
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",

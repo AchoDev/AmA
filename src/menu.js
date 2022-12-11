@@ -68,13 +68,13 @@ menu_btn.addEventListener("mouseout", mExit)
 
 save_button.addEventListener("click", e => {
 
-    function readText(name) {
-        ppMenu.popup_area(`load ${name}`, v => {
+    function readText(name, dir) {
+        ppMenu.popup_area(`${name} laden`, v => {
             if(v != "") {
-                ppMenu.popup_question("sure you want to load this? (current will be deleted)", ["sure", "no don't"], [
+                ppMenu.popup_question("Soll wirklich geladen werden? (Aktuelles wird gelöscht)", ["Ja", "Nein"], [
                     () => {
                         try {
-                            wrt(JSON.parse(v), name)
+                            wrt(JSON.parse(v), dir)
                             ppMenu.closeMenu()
                             upd.update()
                         } catch(e) {
@@ -84,7 +84,7 @@ save_button.addEventListener("click", e => {
                     () => {}
                 ], false)
             } else {
-                ppMenu.popup_question("delete everything?", ["yes", "no"], [
+                ppMenu.popup_question("Alles löschen?", ["Ja", "Nein"], [
                     () => {
                         wrt([], name)
                         upd.update()
@@ -95,25 +95,25 @@ save_button.addEventListener("click", e => {
         }, false)
     }
 
-    ppMenu.popup_question("save or load?", ["save", "load", "abbrechen"], [
+    ppMenu.popup_question("Speichern oder laden?", ["Speichern", "Laden", "Abbrechen"], [
             () => {
-                ppMenu.popup_question("save whaat?", ["dictionary", "pages", "tags"], [
+                ppMenu.popup_question("Was speichern?", ["Wörter", "Seiten", "Kategorien"], [
                     () => {
-                        ppMenu.popup_text("save text", getRaw())
+                        ppMenu.popup_text("Wörter speichern", getRaw())
                     },
                     () => {
-                        ppMenu.popup_text("save pages", getRawPages())
+                        ppMenu.popup_text("Seiten speichern", getRawPages())
                     },
                     () => {
-                        ppMenu.popup_text("save tags", getRawTags())
+                        ppMenu.popup_text("Kategorien speichern", getRawTags())
                     }
                 ])
             },
             () => {
-                ppMenu.popup_question("load what?", ["dictionary", "pages", "tags"], [
-                    () => {readText("dictionary")},
-                    () => {readText("pages")},
-                    () => {readText("tags")}
+                ppMenu.popup_question("Was laden?", ["Wörter", "Seiten", "Kategorien"], [
+                    () => {readText("Wörter", "dictionary")},
+                    () => {readText("Seiten", "pages")},
+                    () => {readText("Kategorien", "tags")}
                 ])
             },
             () => {ppMenu.closeMenu()}
@@ -159,7 +159,7 @@ menu_btn.addEventListener("click", e => {
 const settingsButton = get_elem("settings-button")
 
 settingsButton.addEventListener("click", e => {
-    ppMenu.popup_message("settings not done")
+    ppMenu.popup_message("Einstellungen kommen im Update 1.2")
 })
 
 bg.addEventListener("click", e => {

@@ -66,7 +66,6 @@ const search_tags = (id, fnc) => {
 }
 
 function append_to_tags(tag) {
-    
     function delay(time) {
         return new Promise(resolve => setTimeout(resolve, time));
     }
@@ -151,10 +150,6 @@ function stop_editing() {
 
     edit_tags_button.style.display = "initial"
     stop_edit_button.style.display = "none"
-
-
-    
-
     
     const set_button = (button) => {
 
@@ -271,14 +266,16 @@ function etEvent() {
         })
 
         function delete_tag_event() {
-            pp.popup_question("alle wörter löschen??", ["ja", "ne", "abbrechen"], [
-                () => {
-                    remove_button()
-                },
-                () => {
-                    remove_button()
-                },
-                () => {}])
+            // pp.popup_question("alle wörter löschen??", ["ja", "ne", "abbrechen"], [
+            //     () => {
+            //         remove_button()
+            //     },
+            //     () => {
+            //         remove_button()
+            //     },
+            //     () => {}])
+
+            remove_button()
             
             function remove_button() {
 
