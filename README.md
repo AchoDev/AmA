@@ -4,9 +4,9 @@
 
 Digital vocabulary book
 
-# Download
+# Download (Version 1.1)
 
 macos:
-https://1drv.ms/u/s!AovQFIBO4x5Zif47D0W9KuzRW_4VUQ?e=tba8qn
+https://1drv.ms/u/s!AovQFIBO4x5Zif9z7wEm900Yhn9OSQ?e=RzW4ab
 
 windows: (coming soon)
